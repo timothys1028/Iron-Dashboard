@@ -1,0 +1,2205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="application-name" content="Iron Dashboard">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Iron Dashboard">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="apple-touch-icon" sizes="192x192" href="data:image/png;base64,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">
+<script>
+// Inject PWA manifest dynamically so icons work from data URIs
+const manifest = {
+  name: "Iron Dashboard",
+  short_name: "Iron Dashboard",
+  description: "Elite Powerlifting Tracker",
+  start_url: "./",
+  display: "standalone",
+  background_color: "#0a0a0a",
+  theme_color: "#0a0a0a",
+  orientation: "portrait",
+  icons: [
+    { src: "data:image/png;base64,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", sizes: "192x192", type: "image/png", purpose: "any maskable" },
+    { src: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAIAAAB7GkOtAAAkK0lEQVR4nO3de3wU9b3/8Zm9ZXeTbO4ESBQRQUCBcrBy6bFqFKRgVbTFtng0nBatiPpoKVax+mu152gtalssWh+04oXjqWLFC5SCglVOES3IrUIA5RpCyP262ev8/uAcHmkyMzt7SbLx83r+ufPd73yT2Zn3zHe+8x31vckXKAAAeWx93QAAQN8gAABAKAIAAIQiAABAKAIAAIQiAABAKAIAAIQiAABAKAIAAIQiAABAKAIAAIQiAABAKAIAAIQiAABAKAIAAIQiAABAKAIAAIQiAABAKAIAAIQiAABAKAIAAIRSvV5vX7cBANAHuAIAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEcfd2AdLR23NAka5ix81BKWgLgNPbKnsAVAAAIRQAAgFAEAAAIRQAAgFAEAAAIRQAAgFAEAAAIRQAAgFAEAAAIRQAAgFBMBdGrflBYGFf5J2tre6glQO/gN5/OuAIAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQigAAAKEIAAAQiqkg+rEVK1aYFygvL++NduALjZ/ZFxhXAAAgFAEAAEIRAAAgFAEAAEIRAAAgFAEAAEIRAAAgFAEAAEIRAAAgFAEAAEIRAAAgFAEAAEIRAAAgFAEAAEIRAAAgFAEAAEIRAAAgFAEAAEIRAAAgFAEAAEIRAAAgFAEAAEIRAAAgFAEAAEIRAAAgFAEAAEIRAAAgFAEAAEIRAAAglOr1evu6Dan34IMPJvP1SW+8mGQDPrz233Q/b1m2LK56sufPN1l67rnnmn/9888/j2t1QHdJ/sxS9Zvvub3SooceeijJBqQhrgAAQCgCAACEIgAAQCgCAACEIgAAQCgCAACEIgAAQCgCAACE+mI+CJakteOGJlnDjJ2HdD//QWFhXPU8WVtrsnTFihXmXy8vL49rdUB3Sf7MUvWb77m9UjKuAABAKAIAAIQiAABAKAIAAIQiAABAKAIAAIQiAABAKAIAAIQiAABAKAIAAIQiAABAKAIAAIQiAABAKAIAAIQiAABAKAIAAIQiAABAKAIAAIQiAABAKAIAAIQiAABAKAIAAIQiAABAKAIAAIQiAABAKAIAAIQiAABAKAIAAIQiAABAKEdfNwCJKy8v7+sm4IuPn9kXGFcAACAUAQAAQhEAACAUAQAAQhEAACAUAQAAQhEAACAUAQAAQhEAACAUAQAAQjEVRK96sra2r5sA9Cp+8+mMKwAAEIoAAAChCAAAEIoAAAChCAAAEIoAAAChCAAAEIoAAAChCAAAEIoAAAChVK/X29dtAAD0Aa4AAEAoAgAAhCIAAEAoAgAAhCIAAEAoAgAAhCIAAEAoAgAAhCIAAEAoAgAAhCIAAEAoAgAAhCIAAEAoAgAAhCIAAEAoAgAAhCIAAEAoAgAAhCIAAEAoAgAAhCIAAEAoAgAAhCIAAEAoAgAAhCIAAEAoAgAAhCIAAEAoAgAAhCIAAEAoAgAAhCIAAEAoAgAAhCIAAEAoAgAAhCIAAEAoAgAAhCIAAEAoAgAAhCIAAEAoAgAAhCIAAEAoAgAAhCIAAEAoAgAAhCIAAEAoAgAAhCIAAEAoAgAAhCIAAEAoAgAAhCIAAEAoAgAAhCIAAEAoAgAAhCIAAEAoAgAAhCIAAEAoAgAAhCIAAEAoAgAAhCIAAEAoAgAAhCIAAEAoAgAAhCIAAEAoAgAAhCIAAEAoAgAAhCIAAEAoAgAAhCIAAEAoAgAAhCIAAEAoAgAAhCIAAEAoR183AOhj2dnZEydOHDdu3KhRo0pLSwcOHJiZmel2u6PRqN/vb2xsrKysPHr06K5du7Zt27Z7925N0/q6yUBqqF6vt6/bgLT2t7/97ZxzzjFaumbNmnnz5iX89e40TQuFQqePvDU1NceOHdu3b9+OHTs+/vjjjo4O6/XE5HA4ZsyYMXv27EsuucTpdFr8VnV19dq1a1944YWKiorE1hvzHxKNRqdOnbp3714rtU2ZMmXVqlVGSzdv3jx79ux4Wwg5uAJAelFV1eVyuVyunJycIUOGXHTRRac/7+joWL9+/XPPPbd169YkV2Gz2b75zW8uWrRo8ODB8X63uLh47ty5c+fO3bhx48MPP5xwDJg37957773llltSXjPQBfcA0D+43e5rrrnm9ddff/HFFwcMGJBwPeecc85bb7315JNPJnD076ysrOydd95ZvHixw5H6s6ipU6dOmDAh5dUCXRAA6GeuuOKKN954I65upTOuuuqqDRs2jB8/PiUtsdvtCxYseP311wsKClJSYWeLFy9OeZ1AFwQA+p8hQ4a88sor8d6+uvHGG5cvX56ZmZnaxkyYMOHNN98sKSlJbbWTJ0++7LLLUlsn0AUBgH6ptLT0nnvusV5+2rRpS5YssdvtPdGYoUOHrly50ufzpbba++67T1XV1NYJdEYAoL+aO3duVlaWlZLnnXfe008/3UNH/9NGjBixbNmy1NY5ZsyYq6++OrV1Ap0RAOivnE5nWVlZzGIOh2Pp0qUejydmyerq6uXLl8+ePXvSpElDhw4dPXr05Zdfftddd23YsCEUCsX8ellZ2c0332yp6Zbdc889PZpbEI4AQF9as2bN4E6GDBkyatSoadOmPfDAA/v374/59cmTJ8csM2fOnHHjxpmXiUQiTz/99OTJkx988MHNmzcfPXo0EAg0NjZWVFSsWrXqlltumT59+vbt22Oua/Hixbm5uTGLWTds2DAG8qPnEABII6FQqKmpac+ePb///e+vvPLKP//5z+bli4uLzQu43e4f/vCH5mUikcjtt9/+8MMPmzxotnfv3uuuu279+vXmVfl8vgULFpiXidfChQszMjJSWydwGgGANBUOh++9995IJGJSpqioyLyS6667LmaZxYsXv/3221bac+utt/797383L3bTTTdZ6W6ybvDgweXl5SmsEDiDAED6qqmp2bdvn0mBmNPy3HTTTeYFPvzwwxdffNFie4LB4KJFi8LhsEkZn893zTXXWKzQojvvvNPi7W4gLgQA0lpDQ0PCS4uLi2M+8/Xggw/G1Z6KioqVK1eal/na174WV50x5efn33bbbamtE1AIAKQ584dsza8PysrKzMfR7969e8+ePfE26eWXXzYvENfscl2sWbNG9/PbbrstPz8/sToBIwQA0ldxcfH5559vUmDLli0mS2NOp/OnP/0pgVbt2rXrwIEDJgU8Ho95s00sXbq0paWl++dZWVl33XVXYnUCRggApCmn0/nYY4/ZbIY/0crKyvfff9+khjFjxpiv4sMPP0ysbTFnJB07dmxiNTc0NDzzzDO6i8rLy5OcwA7oggBAGnE4HD6f78ILL/zud7/77rvvTp061aTwo48+Go1GTQqYTxgXiUTMe5BMfPrpp+YFEpur7rRnn322rq6u++cul2vhwoUJVwt0x/sA0Jdmzpx54sSJBL64evXq1157zaRAdnZ2dna2SYEjR44EAoEEVq3EuvegKEoyp+ptbW2//vWvH3rooe6LZs+evWzZss8++yzhyoHOuAJA/7N69eq7777bvEzMW6bmI4jMNTU1Jbl2cy+88EJlZWX3z+12+49//ONkagY6IwDQn9TU1CxcuHD+/PkxJ+dxu93mBVpbWxNuhu592s6SfBYsGAwuWbJEd9HMmTMTvsEAdEEAoH/YvXv3Aw88MHny5JijME9zuVzmBfx+f8KNaWtrS3LtMa1atUp3rJGqqvfdd1+SlQOnEQDoH+x2u9/vt95rHwwGzQskc5Ie8100MdceUyQSeeyxx3QXXXrppVOmTEmyfkAhANBfjB49esmSJa+++mpeXp6V8iYzu52WzOQKMd/9EnPtVqxZs2bnzp26i7gIQEoQAOhPJk2a9Nprr1l591Z9fb15gWTmbc7JyTEvoDuOMwGPPPKI7ucTJkyYNm1aSlYByQgA9DMjR45cunRpzGItLS3mt2qHDBmS8DTLMR/0TWxsa3fvv//+5s2bdRfde++9Jk/JAVbwA0JfOvNCmJKSkhEjRkyfPv3xxx9vbGw0/9bUqVO//e1vx6z8yJEjJksdDsfIkSPjau0ZF1xwQTKrjsujjz6q+/nIkSNnzZqVqrVAJgIAaUHTtNbW1l27dj3++OOXXnrprl27zMvff//9MTuCdu/ebV5g4sSJ8bXy/1x88cXmBWK237rt27evW7dOd9GiRYscDp7lROIIAKSdmpqaOXPmmPei5Ofn33nnneb1bNu2zbzA9ddfH3fjFGXMmDEjRowwKeD3+xOeZELXL37xC91JL84+++yYLzwATBAASEd1dXWLFi0yL1NeXm7+wO3GjRvNaxg7duzo0aPjbdu3vvUt8wIffPCBlZfIW1dRUWE078XMmTNTuCJIQwAgTW3atOmdd94xKZCZmTlv3jyTAidPnvzkk0/M16I75Y6J4cOHxzzpjvkq4wQsWbJEN1TMX3gAmCMAkL5++ctfmheYO3eu+YxvL730knkNU6ZMmTNnjsX2nJ6h2vxlL83NzW+99ZbFCq07duxYzL8FiBcBgPS1e/fuTZs2mRTw+Xy33HKLSYHXX3+9trbWfC2PPPLI9OnTYzbGbrc//fTTMe8br1y5sr29PWZtCfjVr37VQzVDLAIAae03v/mNeYFbb73VZN63jo6OJ554wrwGh8Px7LPP3n///Sb1nH/++atXr54xY4Z5Vc3NzVaeUUhMTU3N8uXLe6hyyEQAIK1t3br1o48+MilQWFho/kzASy+9FHNQpsPhuOOOO7Zs2fLTn/50ypQppaWlLpfL5/MNHz78hhtueO6559avXx/zBZOKojzyyCMxH2JIxrJly3q0fkhDACDdxTynnj9/vkm/fDgcXrBggZW5P4uLi2+99dZVq1Z99NFHhw8f3rdv31//+telS5deddVVVl7yvnHjxueffz5msWQ0Nzc/9dRTPboKiEIAIN29++67//jHP0wKlJSUmI/oP3jw4O23327+/sgk7d+/f/78+T1X/xl/+MMfqqure2FFkIAAQD8Q8yJgwYIF5hPjrF+/fuHChZFIJKXt+l+HDh2aM2dOc3NzT1TeRUdHx5NPPtkLK4IEBAD6gbfffvvQoUMmBYYNGxbzDu0f//jHefPmxXyXS7y2b99+7bXX6r7BsYe8/PLLhw8f7rXV4QuMAEA/EI1Gf/vb35qXiTkzhKIo69atmzZt2o4dO1LSqkgksmzZslmzZsUcaZpaoVAo5hMSgBUEAPqHV1999eTJkyYFxowZc/nll8es59ChQ1dfffXChQurqqqSac977703derUn//856md9cGi1atX7927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", sizes: "512x512", type: "image/png", purpose: "any maskable" }
+  ]
+};
+const blob = new Blob([JSON.stringify(manifest)], {type: 'application/manifest+json'});
+const manifestURL = URL.createObjectURL(blob);
+const link = document.createElement('link');
+link.rel = 'manifest';
+link.href = manifestURL;
+document.currentScript.parentNode.insertBefore(link, document.currentScript);
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Iron Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black:#0a0a0a; --deep:#111; --gray:#1a1a1a; --mid:#222; --card:#1e1e1e;
+  --line:#2e2e2e; --line2:#3a3a3a; --silver:#888; --off:#bbb; --white:#f0f0f0;
+  --red:#c0392b; --red-b:#e74c3c; --red-d:#7b1e1e; --red-g:rgba(192,57,43,.12);
+  --green:#27ae60; --yellow:#f39c12;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{height:100%;background:var(--black);color:var(--white);font-family:'Barlow',sans-serif;overflow-x:hidden;}
+body{display:flex;flex-direction:column;max-width:600px;margin:0 auto;}
+
+/* ── TOPBAR ── */
+.topbar{background:var(--deep);border-bottom:3px solid var(--red);padding:14px 16px 10px;flex-shrink:0;}
+.topbar-row{display:flex;align-items:baseline;justify-content:space-between;}
+.app-title{font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:.06em;line-height:1;}
+.app-title span{color:var(--red);}
+.app-sub{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:.28em;color:var(--silver);text-transform:uppercase;}
+
+/* ── NAV TABS ── */
+.nav-scroll{overflow-x:auto;flex-shrink:0;background:var(--deep);border-bottom:1px solid var(--line);}
+.nav-scroll::-webkit-scrollbar{display:none;}
+.nav-tabs{display:flex;min-width:max-content;}
+.nav-tab{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--silver);padding:10px 14px;border:none;background:none;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;transition:color .15s,border-color .15s;}
+.nav-tab.active{color:var(--white);border-bottom:3px solid var(--red);}
+.nav-tab:hover:not(.active){color:var(--off);}
+
+/* ── MAIN CONTENT ── */
+.main{flex:1;overflow-y:auto;overflow-x:hidden;}
+.tab-panel{display:none;padding-bottom:40px;}
+.tab-panel.active{display:block;}
+
+/* ── SECTION HEADERS ── */
+.section-head{padding:16px 16px 0;}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:.05em;color:var(--white);}
+.section-sub{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.25em;color:var(--red);text-transform:uppercase;margin-bottom:12px;}
+
+/* ── CARDS ── */
+.card{background:var(--card);border:1px solid var(--line);margin:12px 16px;overflow:hidden;}
+.card-head{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--line);}
+.card-title{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:.25em;color:var(--red);text-transform:uppercase;}
+.card-body{padding:14px;}
+.card-label{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:.22em;color:var(--silver);text-transform:uppercase;margin-bottom:3px;}
+
+/* ── PHASE LABELS ── */
+.phase-label{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:.3em;color:var(--red);text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.phase-label::after{content:'';flex:1;height:1px;background:var(--red-d);opacity:.5;}
+
+/* ── INPUTS ── */
+input,select,textarea{background:var(--mid);border:1px solid var(--line2);color:var(--white);font-family:'Barlow',sans-serif;font-size:14px;padding:8px 10px;outline:none;border-radius:0;width:100%;}
+input:focus,select:focus,textarea:focus{border-color:var(--red);background:var(--gray);}
+select option{background:var(--deep);}
+textarea{resize:vertical;min-height:60px;}
+input[type=number]{-moz-appearance:textfield;}
+input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;}
+
+/* ── BUTTONS ── */
+.btn{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:9px 16px;border:none;cursor:pointer;transition:background .15s,opacity .15s;display:inline-flex;align-items:center;gap:6px;}
+.btn-red{background:var(--red);color:var(--white);}
+.btn-red:hover{background:var(--red-b);}
+.btn-ghost{background:transparent;color:var(--silver);border:1px solid var(--line2);}
+.btn-ghost:hover{color:var(--white);border-color:var(--silver);}
+.btn-dim{background:var(--mid);color:var(--off);border:1px solid var(--line2);}
+.btn-dim:hover{background:var(--gray);}
+.btn-danger{background:transparent;color:var(--red);border:1px solid var(--red-d);}
+.btn-danger:hover{background:var(--red-g);}
+.btn-green{background:var(--green);color:var(--white);}
+.btn-sm{padding:5px 10px;font-size:11px;}
+.btn-xs{padding:3px 8px;font-size:10px;letter-spacing:.12em;}
+.btn-full{width:100%;justify-content:center;}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;padding:0 16px 12px;}
+
+/* ── SUBTABS ── */
+.subtab-bar{display:flex;border-bottom:1px solid var(--line);background:var(--gray);overflow-x:auto;}
+.subtab-bar::-webkit-scrollbar{display:none;}
+.subtab{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--silver);padding:9px 14px;border:none;background:none;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;}
+.subtab.active{color:var(--white);border-bottom:2px solid var(--red);}
+.subtab-panel{display:none;}
+.subtab-panel.active{display:block;}
+
+/* ── STAT GRID ── */
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);}
+.stat-grid-3{grid-template-columns:1fr 1fr 1fr;}
+.stat-cell{background:var(--card);padding:12px 14px;}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:32px;line-height:1;color:var(--white);}
+.stat-num.editable-num{cursor:pointer;border-bottom:1px dashed var(--line2);}
+.stat-num.editable-num:hover{border-bottom-color:var(--red);color:var(--red-b);}
+.stat-unit{font-family:'Barlow Condensed',sans-serif;font-size:10px;color:var(--silver);margin-left:2px;}
+.stat-lbl{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:.22em;color:var(--silver);text-transform:uppercase;margin-bottom:4px;}
+
+/* ── EDITABLE TEXT ── */
+.editable-text{cursor:pointer;border-bottom:1px dashed var(--line2);display:inline-block;}
+.editable-text:hover{border-bottom-color:var(--red);color:var(--red-b);}
+.edit-input-wrap{display:none;}
+.edit-input-wrap.shown{display:block;}
+
+/* ── CUE ITEMS ── */
+.cue-item{border:1px solid var(--line);background:var(--mid);margin-bottom:8px;overflow:hidden;}
+.cue-item.favorited{border-left:3px solid var(--red);}
+.cue-head{display:flex;align-items:flex-start;justify-content:space-between;padding:10px 12px 6px;gap:10px;}
+.cue-main{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;letter-spacing:.02em;color:var(--white);text-transform:uppercase;line-height:1.2;flex:1;}
+.cue-body{padding:0 12px 10px;}
+.cue-desc{font-size:12px;color:var(--silver);line-height:1.45;margin-bottom:6px;}
+.cue-meta{display:flex;gap:8px;flex-wrap:wrap;}
+.cue-tag{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:600;letter-spacing:.12em;padding:2px 7px;border:1px solid var(--line2);color:var(--silver);text-transform:uppercase;}
+.cue-tag.tag-red{border-color:var(--red-d);color:var(--red-b);}
+.star-btn{background:none;border:none;cursor:pointer;font-size:18px;color:var(--line2);flex-shrink:0;line-height:1;padding:0;}
+.star-btn.active{color:var(--yellow);}
+
+/* ── SET ROW ── */
+.set-row{display:grid;grid-template-columns:40px 1fr 60px 70px 60px 36px;gap:4px;align-items:center;margin-bottom:4px;}
+.set-num{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--red);text-align:center;}
+.set-row input{font-size:13px;padding:6px 7px;text-align:center;}
+
+/* ── LIST ITEMS ── */
+.list-item{border:1px solid var(--line);background:var(--card);margin-bottom:8px;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.list-item-main{flex:1;}
+.list-item-title{font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:.03em;}
+.list-item-sub{font-size:12px;color:var(--silver);margin-top:2px;}
+
+/* ── COLLAPSIBLE ── */
+.collapsible-head{display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:12px 14px;border-bottom:1px solid var(--line);}
+.collapsible-head:hover{background:rgba(255,255,255,.03);}
+.collapsible-arrow{font-size:12px;color:var(--silver);transition:transform .2s;}
+.collapsible-arrow.open{transform:rotate(180deg);}
+.collapsible-body{display:none;padding:14px;}
+.collapsible-body.open{display:block;}
+
+/* ── BADGE ── */
+.badge{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:2px 8px;border:1px solid;}
+.badge-red{color:var(--red-b);border-color:var(--red-d);}
+.badge-green{color:var(--green);border-color:#1a6b3c;}
+.badge-gray{color:var(--silver);border-color:var(--line2);}
+
+/* ── CHARTS ── */
+.chart-wrap{width:100%;overflow-x:auto;padding:0 16px;}
+canvas{max-width:100%;display:block;}
+
+/* ── TABLE ── */
+.rpe-table-wrap{overflow-x:auto;margin:0 16px;}
+.rpe-table{width:100%;border-collapse:collapse;font-family:'Barlow Condensed',sans-serif;}
+.rpe-table thead tr{background:var(--mid);border-bottom:2px solid var(--red-d);}
+.rpe-table thead th{padding:8px 4px;font-size:10px;font-weight:700;letter-spacing:.15em;color:var(--silver);text-transform:uppercase;text-align:center;white-space:nowrap;}
+.rpe-table thead th.rpe-col{text-align:left;padding-left:12px;width:46px;color:var(--red);}
+.rpe-table tbody tr{border-bottom:1px solid var(--line);}
+.rpe-table tbody tr:hover{background:var(--red-g);}
+.rpe-table tbody td{padding:7px 4px;text-align:center;font-size:12px;font-weight:600;color:var(--off);}
+.rpe-table tbody td.rpe-val{text-align:left;padding-left:12px;font-family:'Bebas Neue',sans-serif;font-size:17px;color:var(--white);}
+.i-max{color:var(--red-b);font-weight:700;}
+.i-high{color:#e08060;font-weight:700;}
+.i-med{color:var(--off);}
+.i-low{color:var(--silver);}
+
+/* ── LOG HISTORY ── */
+.log-entry{border:1px solid var(--line);background:var(--card);margin-bottom:8px;}
+.log-entry-head{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;cursor:pointer;}
+.log-entry-head:hover{background:rgba(255,255,255,.03);}
+.log-date{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.05em;}
+.log-day{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:.18em;color:var(--red);text-transform:uppercase;}
+.log-sets-summary{font-size:12px;color:var(--silver);}
+
+/* ── BW CHART ── */
+.bw-entry{display:grid;grid-template-columns:1fr 80px 80px 80px;gap:8px;align-items:center;margin-bottom:8px;}
+.bw-entry input{font-size:13px;padding:6px 8px;text-align:center;}
+
+/* ── DIVIDER ── */
+.divider{height:1px;background:var(--line);margin:12px 16px;}
+
+/* ── EMPTY STATE ── */
+.empty-state{padding:32px 16px;text-align:center;}
+.empty-state-title{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:.2em;color:var(--silver);text-transform:uppercase;}
+.empty-state-sub{font-size:12px;color:var(--line2);margin-top:6px;}
+
+/* ── MODAL ── */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:1000;align-items:flex-end;justify-content:center;}
+.modal-overlay.open{display:flex;}
+.modal{background:var(--deep);border:1px solid var(--line);border-bottom:none;width:100%;max-width:600px;max-height:85vh;overflow-y:auto;padding:20px 16px 32px;}
+.modal-title{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:.05em;margin-bottom:16px;}
+.modal-actions{display:flex;gap:8px;margin-top:16px;}
+
+/* ── CONFIRM ── */
+.confirm-msg{font-size:14px;color:var(--off);margin-bottom:16px;line-height:1.5;}
+
+/* ── FORM ROWS ── */
+.form-row{margin-bottom:12px;}
+.form-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.22em;color:var(--silver);text-transform:uppercase;display:block;margin-bottom:4px;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.form-grid-3{grid-template-columns:1fr 1fr 1fr;}
+
+/* ── QUICK ACTIONS ── */
+.quick-actions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding:0 16px 16px;}
+.quick-btn{background:var(--card);border:1px solid var(--line);padding:12px 8px;text-align:center;cursor:pointer;transition:background .15s,border-color .15s;}
+.quick-btn:hover{background:var(--mid);border-color:var(--line2);}
+.quick-btn .icon{font-size:20px;display:block;margin-bottom:4px;}
+.quick-btn .label{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.15em;color:var(--silver);text-transform:uppercase;}
+
+/* ── NUTRITION ── */
+.macro-row{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:6px;margin-bottom:8px;}
+.macro-cell{background:var(--mid);border:1px solid var(--line);padding:8px;text-align:center;}
+.macro-val{font-family:'Bebas Neue',sans-serif;font-size:22px;line-height:1;color:var(--white);}
+.macro-lbl{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:.18em;color:var(--silver);text-transform:uppercase;}
+
+/* ── REST DAY ── */
+.rest-day-card{background:var(--card);border:1px solid var(--line);margin:12px 16px;padding:20px;text-align:center;}
+.rest-day-title{font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:.06em;color:var(--silver);}
+.rest-day-sub{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.25em;color:var(--line2);text-transform:uppercase;margin-top:4px;}
+
+/* ── PR BADGE ── */
+.pr-badge{background:var(--red-d);color:var(--red-b);font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.15em;padding:1px 6px;text-transform:uppercase;border:1px solid var(--red-d);}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:4px;height:4px;}
+::-webkit-scrollbar-track{background:var(--black);}
+::-webkit-scrollbar-thumb{background:var(--line2);}
+
+/* ── LEGEND ── */
+.legend-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;padding:10px 16px;}
+.legend-item{display:flex;align-items:center;gap:5px;font-family:'Barlow Condensed',sans-serif;font-size:11px;color:var(--silver);text-transform:uppercase;letter-spacing:.08em;}
+.legend-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+
+/* ── ACCESSORY CATEGORY TAG ── */
+.cat-tag{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:.18em;padding:2px 7px;text-transform:uppercase;border:1px solid var(--line2);color:var(--silver);}
+.cat-squat{border-color:#2980b9;color:#5dade2;}
+.cat-bench{border-color:#8e44ad;color:#c39bd3;}
+.cat-dead{border-color:#d35400;color:#e59866;}
+.cat-general{border-color:var(--line2);color:var(--silver);}
+.cat-rehab{border-color:#27ae60;color:#82e0aa;}
+
+/* ── FILTERS ── */
+.filter-bar{display:flex;gap:6px;flex-wrap:nowrap;overflow-x:auto;padding:10px 16px;border-bottom:1px solid var(--line);}
+.filter-bar::-webkit-scrollbar{display:none;}
+.filter-btn{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:5px 10px;border:1px solid var(--line2);background:none;color:var(--silver);cursor:pointer;white-space:nowrap;}
+.filter-btn.active{border-color:var(--red);color:var(--red-b);background:var(--red-g);}
+
+/* ── TOGGLE ── */
+.toggle-row{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--line);}
+.toggle-label{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:600;letter-spacing:.05em;color:var(--white);}
+.toggle-sub{font-size:11px;color:var(--silver);}
+.toggle{position:relative;width:44px;height:24px;flex-shrink:0;}
+.toggle input{opacity:0;width:0;height:0;}
+.toggle-slider{position:absolute;inset:0;background:var(--mid);border:1px solid var(--line2);cursor:pointer;transition:.2s;}
+.toggle-slider:before{content:'';position:absolute;width:18px;height:18px;left:2px;top:2px;background:var(--silver);transition:.2s;}
+.toggle input:checked+.toggle-slider{background:var(--red-d);border-color:var(--red);}
+.toggle input:checked+.toggle-slider:before{transform:translateX(20px);background:var(--red-b);}
+
+@media(min-width:601px){
+  body{border-left:1px solid var(--line);border-right:1px solid var(--line);}
+  .set-row{grid-template-columns:40px 1fr 70px 80px 70px 36px;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-row">
+    <div class="app-title">IRON <span>DASHBOARD</span></div>
+    <div id="topbar-total" style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.04em;color:var(--silver);"></div>
+  </div>
+  <div class="app-sub">Elite Powerlifting Tracker · USAPL</div>
+</div>
+
+<div class="nav-scroll">
+  <div class="nav-tabs" id="mainNav">
+    <button class="nav-tab active" onclick="showTab('dashboard')">Dashboard</button>
+    <button class="nav-tab" onclick="showTab('log')">Log</button>
+    <button class="nav-tab" onclick="showTab('targets')">Targets</button>
+    <button class="nav-tab" onclick="showTab('split')">Split</button>
+    <button class="nav-tab" onclick="showTab('graphs')">Graphs</button>
+    <button class="nav-tab" onclick="showTab('accessories')">Accessories</button>
+    <button class="nav-tab" onclick="showTab('rpe')">RPE Table</button>
+    <button class="nav-tab" onclick="showTab('cues')">Cues</button>
+    <button class="nav-tab" onclick="showTab('nutrition')">BW & Nutrition</button>
+    <button class="nav-tab" onclick="showTab('settings')">Settings</button>
+  </div>
+</div>
+
+<div class="main">
+
+<!-- ═══════════════════ DASHBOARD ═══════════════════ -->
+<div id="tab-dashboard" class="tab-panel active">
+  <div class="card" style="margin-top:16px;">
+    <div class="card-head">
+      <span class="card-title">Athlete Profile</span>
+      <span id="profile-wc-badge" class="badge badge-red"></span>
+    </div>
+    <div class="card-body">
+      <div class="card-label">Athlete Name</div>
+      <div style="margin-bottom:12px;">
+        <span id="profile-name-display" class="stat-num editable-num" style="font-size:26px;" onclick="editField('name')"></span>
+        <div id="profile-name-edit" class="edit-input-wrap" style="margin-top:4px;">
+          <input type="text" id="input-name" placeholder="Athlete Name" onblur="saveField('name')" onkeydown="if(event.key==='Enter')saveField('name')">
+        </div>
+      </div>
+      <div class="form-grid">
+        <div>
+          <div class="card-label">Weight Class</div>
+          <span id="profile-wc-display" class="editable-text" style="font-family:'Bebas Neue',sans-serif;font-size:22px;" onclick="editField('wc')"></span>
+          <div id="profile-wc-edit" class="edit-input-wrap" style="margin-top:4px;">
+            <input type="text" id="input-wc" placeholder="e.g. 82.5kg" onblur="saveField('wc')" onkeydown="if(event.key==='Enter')saveField('wc')">
+          </div>
+        </div>
+        <div>
+          <div class="card-label">Latest Bodyweight</div>
+          <span id="dash-bw" style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--off);">—</span>
+          <span style="font-family:'Barlow Condensed',sans-serif;font-size:11px;color:var(--silver);"> kg</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="card-title">Current Maxes</span><span class="badge badge-gray">Click to edit</span></div>
+    <div class="stat-grid stat-grid-3">
+      <div class="stat-cell">
+        <div class="stat-lbl">Squat</div>
+        <div onclick="editMax('sq')">
+          <span id="dash-sq" class="stat-num editable-num"></span><span class="stat-unit unit-label">lbs</span>
+        </div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-lbl">Bench</div>
+        <div onclick="editMax('bp')">
+          <span id="dash-bp" class="stat-num editable-num"></span><span class="stat-unit unit-label">lbs</span>
+        </div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-lbl">Deadlift</div>
+        <div onclick="editMax('dl')">
+          <span id="dash-dl" class="stat-num editable-num"></span><span class="stat-unit unit-label">lbs</span>
+        </div>
+      </div>
+    </div>
+    <div style="background:var(--mid);border-top:2px solid var(--red);padding:12px 14px;display:flex;align-items:baseline;gap:8px;">
+      <span style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.22em;color:var(--red);text-transform:uppercase;">Total</span>
+      <span id="dash-total" style="font-family:'Bebas Neue',sans-serif;font-size:38px;letter-spacing:.04em;"></span>
+      <span class="unit-label" style="font-family:'Barlow Condensed',sans-serif;font-size:12px;color:var(--silver);">lbs</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="card-title">Recent Activity</span></div>
+    <div class="card-body" id="dash-recent">
+      <div style="color:var(--silver);font-size:13px;">No sessions logged yet.</div>
+    </div>
+  </div>
+
+  <div class="quick-actions">
+    <div class="quick-btn" onclick="quickLogToday()">
+      <span class="icon">📋</span>
+      <span class="label">Log Today</span>
+    </div>
+    <div class="quick-btn" onclick="showTab('targets');showNavTab('targets')">
+      <span class="icon">🎯</span>
+      <span class="label">Edit Targets</span>
+    </div>
+    <div class="quick-btn" onclick="openAddBW()">
+      <span class="icon">⚖️</span>
+      <span class="label">Add BW</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ WORKOUT LOG ═══════════════════ -->
+<div id="tab-log" class="tab-panel">
+  <div class="subtab-bar" id="logDayTabs"></div>
+  <div id="logDayPanels"></div>
+  <div style="padding:12px 16px 0;">
+    <div class="card-title" style="padding:0 0 8px;">Session History</div>
+    <div id="logHistory"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ TARGETS ═══════════════════ -->
+<div id="tab-targets" class="tab-panel">
+  <div style="padding:12px 16px 0;"><div class="section-sub">Program Builder</div></div>
+  <div class="subtab-bar" id="targetDayTabs"></div>
+  <div id="targetDayPanels"></div>
+</div>
+
+<!-- ═══════════════════ SPLIT ═══════════════════ -->
+<div id="tab-split" class="tab-panel">
+  <div style="padding:12px 16px 0;"><div class="section-sub">Current Weekly Split</div></div>
+  <div id="splitView"></div>
+</div>
+
+<!-- ═══════════════════ GRAPHS ═══════════════════ -->
+<div id="tab-graphs" class="tab-panel">
+  <div class="subtab-bar">
+    <button class="subtab active" onclick="showSubtab('graphs','gSQ',this)">Squat</button>
+    <button class="subtab" onclick="showSubtab('graphs','gBP',this)">Bench</button>
+    <button class="subtab" onclick="showSubtab('graphs','gDL',this)">Deadlift</button>
+  </div>
+  <div id="gSQ" class="subtab-panel active"></div>
+  <div id="gBP" class="subtab-panel"></div>
+  <div id="gDL" class="subtab-panel"></div>
+</div>
+
+<!-- ═══════════════════ ACCESSORIES ═══════════════════ -->
+<div id="tab-accessories" class="tab-panel">
+  <div class="btn-row" style="padding-top:14px;">
+    <button class="btn btn-red" onclick="openAddAccessory()">+ Add Accessory</button>
+    <button class="btn btn-ghost" onclick="toggleShowArchived()">Show Archived</button>
+  </div>
+  <div id="accessoryList" style="padding:0 16px;"></div>
+</div>
+
+<!-- ═══════════════════ RPE TABLE ═══════════════════ -->
+<div id="tab-rpe" class="tab-panel">
+  <div style="padding:14px 16px 8px;">
+    <div class="section-sub">1RM · Percentage · Rep Chart</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px;">
+      <div>
+        <div class="card-label">Squat</div>
+        <div style="display:flex;align-items:center;border:1px solid var(--line2);background:var(--gray);">
+          <span style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--red);padding:0 6px;border-right:1px solid var(--line2);white-space:nowrap;">SQ</span>
+          <input type="number" id="rpe-sq" style="font-family:'Bebas Neue',sans-serif;font-size:20px;padding:7px 6px;" onchange="renderRPETable()" oninput="renderRPETable()">
+        </div>
+      </div>
+      <div>
+        <div class="card-label">Bench</div>
+        <div style="display:flex;align-items:center;border:1px solid var(--line2);background:var(--gray);">
+          <span style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--red);padding:0 6px;border-right:1px solid var(--line2);white-space:nowrap;">BP</span>
+          <input type="number" id="rpe-bp" style="font-family:'Bebas Neue',sans-serif;font-size:20px;padding:7px 6px;" onchange="renderRPETable()" oninput="renderRPETable()">
+        </div>
+      </div>
+      <div>
+        <div class="card-label">Deadlift</div>
+        <div style="display:flex;align-items:center;border:1px solid var(--line2);background:var(--gray);">
+          <span style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--red);padding:0 6px;border-right:1px solid var(--line2);white-space:nowrap;">DL</span>
+          <input type="number" id="rpe-dl" style="font-family:'Bebas Neue',sans-serif;font-size:20px;padding:7px 6px;" onchange="renderRPETable()" oninput="renderRPETable()">
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;margin-bottom:12px;" id="rpeLiftTabs">
+      <button class="btn btn-red btn-sm" onclick="setRPELift('sq',this)" id="rpe-tab-sq">SQUAT</button>
+      <button class="btn btn-ghost btn-sm" onclick="setRPELift('bp',this)" id="rpe-tab-bp">BENCH</button>
+      <button class="btn btn-ghost btn-sm" onclick="setRPELift('dl',this)" id="rpe-tab-dl">DEADLIFT</button>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+      <span style="font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:.3em;color:var(--red);text-transform:uppercase;">RPE × Reps → Load (<span class="rpe-unit-label">lbs</span>)</span>
+      <span id="rpe-round-hint" style="font-family:'Barlow',sans-serif;font-size:11px;color:var(--silver);">Rounded to nearest 5</span>
+    </div>
+  </div>
+  <div class="rpe-table-wrap"><div id="rpeTableContainer"></div></div>
+  <div class="legend-row" style="border-top:1px solid var(--line);margin-top:8px;">
+    <span style="font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:.25em;color:var(--silver);text-transform:uppercase;">Intensity</span>
+    <span class="legend-item"><span class="legend-dot" style="background:#e74c3c;"></span><span style="color:#e74c3c;">95%+</span></span>
+    <span class="legend-item"><span class="legend-dot" style="background:#e08060;"></span><span style="color:#e08060;">88–94%</span></span>
+    <span class="legend-item"><span class="legend-dot" style="background:#bbb;"></span><span style="color:#bbb;">75–87%</span></span>
+    <span class="legend-item"><span class="legend-dot" style="background:#888;"></span><span style="color:#888;">&lt;75%</span></span>
+  </div>
+</div>
+
+<!-- ═══════════════════ CUES ═══════════════════ -->
+<div id="tab-cues" class="tab-panel">
+  <div class="subtab-bar">
+    <button class="subtab active" onclick="showSubtab('cues','cSQ',this)">Squat</button>
+    <button class="subtab" onclick="showSubtab('cues','cBP',this)">Bench</button>
+    <button class="subtab" onclick="showSubtab('cues','cDL',this)">Deadlift</button>
+  </div>
+  <div id="cSQ" class="subtab-panel active"></div>
+  <div id="cBP" class="subtab-panel"></div>
+  <div id="cDL" class="subtab-panel"></div>
+</div>
+
+<!-- ═══════════════════ BW & NUTRITION ═══════════════════ -->
+<div id="tab-nutrition" class="tab-panel">
+  <div class="subtab-bar">
+    <button class="subtab active" onclick="showSubtab('nutrition','nLog',this)">Log</button>
+    <button class="subtab" onclick="showSubtab('nutrition','nHistory',this);renderNutritionHistory()">History</button>
+    <button class="subtab" onclick="showSubtab('nutrition','nCharts',this);renderNutritionCharts()">Charts</button>
+  </div>
+  <div id="nLog" class="subtab-panel active">
+    <div class="card" style="margin-top:14px;">
+      <div class="card-head"><span class="card-title">Log Entry</span></div>
+      <div class="card-body">
+        <div class="form-row">
+          <label class="form-label">Date</label>
+          <input type="date" id="n-date">
+        </div>
+        <div class="form-row">
+          <label class="form-label">Morning Bodyweight (kg)</label>
+          <input type="number" id="n-bw" step="0.1" placeholder="e.g. 82.1">
+        </div>
+        <div class="form-grid" style="margin-bottom:12px;">
+          <div class="form-row" style="margin-bottom:0;">
+            <label class="form-label">Calories</label>
+            <input type="number" id="n-cal" placeholder="e.g. 3200">
+          </div>
+          <div class="form-row" style="margin-bottom:0;">
+            <label class="form-label">Protein (g)</label>
+            <input type="number" id="n-pro" placeholder="e.g. 200">
+          </div>
+        </div>
+        <div class="form-grid">
+          <div class="form-row" style="margin-bottom:0;">
+            <label class="form-label">Carbs (g)</label>
+            <input type="number" id="n-carbs" placeholder="e.g. 380">
+          </div>
+          <div class="form-row" style="margin-bottom:0;">
+            <label class="form-label">Fat (g)</label>
+            <input type="number" id="n-fat" placeholder="e.g. 90">
+          </div>
+        </div>
+        <div class="form-row" style="margin-top:12px;">
+          <label class="form-label">Notes (optional)</label>
+          <textarea id="n-notes" placeholder="Any relevant notes..."></textarea>
+        </div>
+        <button class="btn btn-red btn-full" style="margin-top:4px;" onclick="saveNutritionEntry()">Save Entry</button>
+      </div>
+    </div>
+  </div>
+  <div id="nHistory" class="subtab-panel"><div id="nutriHistList" style="padding:12px 16px;"></div></div>
+  <div id="nCharts" class="subtab-panel"><div id="nutriChartArea" style="padding:12px 16px;"></div></div>
+</div>
+
+<!-- ═══════════════════ SETTINGS ═══════════════════ -->
+<div id="tab-settings" class="tab-panel">
+  <div class="card" style="margin-top:16px;">
+    <div class="card-head"><span class="card-title">Units</span></div>
+    <div class="card-body">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;color:var(--silver);margin-bottom:12px;letter-spacing:.05em;">
+        Switches all lifted weight displays, RPE table, and logs between pounds and kilograms. Your data is always stored in lbs internally — this changes display only.
+      </div>
+      <div style="display:flex;gap:0;border:1px solid var(--line2);overflow:hidden;">
+        <button id="settings-unit-lbs" class="btn btn-red" style="flex:1;justify-content:center;border-radius:0;border:none;" onclick="setUnit('lbs')">LBS</button>
+        <button id="settings-unit-kg"  class="btn btn-ghost" style="flex:1;justify-content:center;border-radius:0;border:none;border-left:1px solid var(--line2);" onclick="setUnit('kg')">KG</button>
+      </div>
+      <div style="margin-top:10px;font-size:12px;color:var(--silver);">
+        Current: <strong id="settings-unit-current" style="color:var(--white);"></strong>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-head"><span class="card-title">Data Tools</span></div>
+    <div class="card-body">
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <button class="btn btn-dim btn-full" onclick="exportData()">⬇ Export All Data (JSON)</button>
+        <button class="btn btn-dim btn-full" onclick="document.getElementById('importFile').click()">⬆ Import Data (JSON)</button>
+        <input type="file" id="importFile" accept=".json" style="display:none;" onchange="importData(event)">
+        <button class="btn btn-danger btn-full" onclick="confirmReset()">⚠ Reset All App Data</button>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-head"><span class="card-title">About</span></div>
+    <div class="card-body">
+      <div style="font-size:13px;color:var(--silver);line-height:1.6;">
+        <div><strong style="color:var(--off);">Iron Dashboard</strong></div>
+        <div>Elite Powerlifting Tracker</div>
+        <div style="margin-top:8px;font-size:11px;">All data stored locally on your device via localStorage. Use Export regularly to back up your data.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end .main -->
+
+<!-- ═══════ MODALS ═══════ -->
+<div class="modal-overlay" id="modal-editMax">
+  <div class="modal">
+    <div class="modal-title" id="editMaxTitle">Edit Max</div>
+    <div class="form-row">
+      <label class="form-label">New Max (lbs)</label>
+      <input type="number" id="editMaxInput" placeholder="e.g. 460">
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-red" onclick="saveEditMax()">Save</button>
+      <button class="btn btn-ghost" onclick="closeModal('modal-editMax')">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-addBW">
+  <div class="modal">
+    <div class="modal-title">Add Bodyweight</div>
+    <div class="form-row">
+      <label class="form-label">Date</label>
+      <input type="date" id="bw-date">
+    </div>
+    <div class="form-row">
+      <label class="form-label">Bodyweight (kg)</label>
+      <input type="number" id="bw-val" step="0.1" placeholder="e.g. 82.1">
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-red" onclick="saveQuickBW()">Save</button>
+      <button class="btn btn-ghost" onclick="closeModal('modal-addBW')">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-addAccessory">
+  <div class="modal">
+    <div class="modal-title" id="accModalTitle">Add Accessory</div>
+    <input type="hidden" id="accEditId">
+    <div class="form-row">
+      <label class="form-label">Name</label>
+      <input type="text" id="acc-name" placeholder="e.g. Pause Squat">
+    </div>
+    <div class="form-row">
+      <label class="form-label">Short Description</label>
+      <input type="text" id="acc-desc" placeholder="Brief description">
+    </div>
+    <div class="form-row">
+      <label class="form-label">Category</label>
+      <select id="acc-cat">
+        <option value="squat">Squat Accessory</option>
+        <option value="bench">Bench Accessory</option>
+        <option value="deadlift">Deadlift Accessory</option>
+        <option value="general">General</option>
+        <option value="rehab">Rehab / Prehab</option>
+      </select>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-red" onclick="saveAccessory()">Save</button>
+      <button class="btn btn-ghost" onclick="closeModal('modal-addAccessory')">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-confirm">
+  <div class="modal">
+    <div class="modal-title" id="confirmTitle">Confirm</div>
+    <div class="confirm-msg" id="confirmMsg"></div>
+    <div class="modal-actions">
+      <button class="btn btn-danger" id="confirmOkBtn">Confirm</button>
+      <button class="btn btn-ghost" onclick="closeModal('modal-confirm')">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-viewLog">
+  <div class="modal">
+    <div class="modal-title" id="viewLogTitle">Session Log</div>
+    <div id="viewLogBody"></div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeModal('modal-viewLog')">Close</button>
+      <button class="btn btn-danger" id="deleteLogBtn">Delete</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════
+// CONSTANTS & DATA
+// ═══════════════════════════════════════════════
+const DAYS = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+const DAYS_SHORT = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+
+const RPE_TABLE = {
+  10:  {1:1.000,2:0.955,3:0.917,4:0.885,5:0.857,6:0.832,7:0.809,8:0.786,9:0.762,10:0.741},
+  9.5: {1:0.978,2:0.939,3:0.900,4:0.868,5:0.840,6:0.816,7:0.794,8:0.771,9:0.747,10:0.723},
+  9:   {1:0.955,2:0.922,3:0.885,4:0.853,5:0.825,6:0.800,7:0.778,8:0.755,9:0.731,10:0.707},
+  8.5: {1:0.939,2:0.905,3:0.869,4:0.838,5:0.810,6:0.786,7:0.762,8:0.739,9:0.714,10:0.690},
+  8:   {1:0.922,2:0.889,3:0.853,4:0.822,5:0.794,6:0.769,7:0.746,8:0.723,9:0.699,10:0.675},
+  7.5: {1:0.905,2:0.872,3:0.837,4:0.807,5:0.779,6:0.754,7:0.731,8:0.707,9:0.683,10:0.659},
+  7:   {1:0.889,2:0.857,3:0.822,4:0.792,5:0.765,6:0.740,7:0.716,8:0.692,9:0.667,10:0.643},
+  6:   {1:0.857,2:0.824,3:0.790,4:0.760,5:0.734,6:0.709,7:0.686,8:0.662,9:0.637,10:0.613},
+};
+const RPE_ORDER = [10,9.5,9,8.5,8,7.5,7,6];
+const REP_RANGE = [2,3,4,5,6,7,8,9,10];
+
+// ═══════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════
+let APP = {};
+
+const DEFAULT_ACCESSORIES = [
+  {id:'acc1',name:'Pause Squat',desc:'Squat with 2-3 second pause at depth',cat:'squat',archived:false},
+  {id:'acc2',name:'SSB Squat',desc:'Safety bar squat for upper back and quad development',cat:'squat',archived:false},
+  {id:'acc3',name:'Romanian Deadlift',desc:'Hip hinge movement, hamstring focus',cat:'deadlift',archived:false},
+  {id:'acc4',name:'Close Grip Bench',desc:'Bench with ~1.5x shoulder width grip, tricep focus',cat:'bench',archived:false},
+  {id:'acc5',name:'Larsen Press',desc:'Bench with feet off the floor, strict press',cat:'bench',archived:false},
+  {id:'acc6',name:'Deficit Deadlift',desc:'Pull from a 1-2 inch deficit for off-the-floor strength',cat:'deadlift',archived:false},
+  {id:'acc7',name:'Front Squat',desc:'Front-loaded squat, quad and upper back emphasis',cat:'squat',archived:false},
+  {id:'acc8',name:'DB Row',desc:'Dumbbell row for upper back thickness',cat:'general',archived:false},
+  {id:'acc9',name:'Banded Pull Apart',desc:'Shoulder health, retraction work',cat:'rehab',archived:false},
+];
+
+const DEFAULT_TARGETS = {
+  Monday:   {type:'training',label:'Squat Intensity',exercises:[
+    {name:'Squat',sets:[{w:415,r:2,rpe:8},{w:415,r:2,rpe:8},{w:415,r:2,rpe:8}]},
+    {name:'Pause Squat',sets:[{w:320,r:3,rpe:8},{w:320,r:3,rpe:8},{w:320,r:3,rpe:8}]},
+    {name:'Romanian Deadlift',sets:[{w:250,r:5,rpe:7},{w:250,r:5,rpe:7},{w:250,r:5,rpe:7}]},
+  ]},
+  Tuesday:  {type:'training',label:'Bench Volume',exercises:[
+    {name:'Bench',sets:[{w:295,r:5,rpe:8},{w:295,r:5,rpe:8},{w:295,r:5,rpe:8},{w:295,r:5,rpe:8}]},
+    {name:'Close Grip Bench',sets:[{w:245,r:6,rpe:8},{w:245,r:6,rpe:8},{w:245,r:6,rpe:8}]},
+    {name:'DB Row',sets:[{w:100,r:10,rpe:7},{w:100,r:10,rpe:7},{w:100,r:10,rpe:7}]},
+  ]},
+  Wednesday:{type:'rest',label:'Rest Day',exercises:[]},
+  Thursday: {type:'training',label:'Deadlift Intensity',exercises:[
+    {name:'Deadlift',sets:[{w:465,r:2,rpe:8},{w:465,r:2,rpe:8},{w:465,r:2,rpe:8}]},
+    {name:'Deficit Deadlift',sets:[{w:365,r:3,rpe:8},{w:365,r:3,rpe:8},{w:365,r:3,rpe:8}]},
+    {name:'Larsen Press',sets:[{w:225,r:6,rpe:7},{w:225,r:6,rpe:7},{w:225,r:6,rpe:7}]},
+  ]},
+  Friday:   {type:'training',label:'Squat Volume',exercises:[
+    {name:'Squat',sets:[{w:370,r:5,rpe:8},{w:370,r:5,rpe:8},{w:370,r:5,rpe:8},{w:370,r:5,rpe:8}]},
+    {name:'Bench',sets:[{w:285,r:4,rpe:7},{w:285,r:4,rpe:7},{w:285,r:4,rpe:7}]},
+    {name:'Banded Pull Apart',sets:[{w:0,r:25,rpe:6},{w:0,r:25,rpe:6},{w:0,r:25,rpe:6}]},
+  ]},
+  Saturday: {type:'training',label:'Deadlift Volume',exercises:[
+    {name:'Deadlift',sets:[{w:415,r:4,rpe:8},{w:415,r:4,rpe:8},{w:415,r:4,rpe:8}]},
+    {name:'SSB Squat',sets:[{w:295,r:5,rpe:7},{w:295,r:5,rpe:7},{w:295,r:5,rpe:7}]},
+  ]},
+  Sunday:   {type:'rest',label:'Rest Day',exercises:[]},
+};
+
+const DEFAULT_LOGS = [
+  {id:'log1',date:'2025-04-28',day:'Monday',targetSnapshot:DEFAULT_TARGETS.Monday,exercises:[
+    {name:'Squat',sets:[{w:415,r:2,rpe:8},{w:415,r:2,rpe:8.5},{w:420,r:2,rpe:9}]},
+    {name:'Pause Squat',sets:[{w:320,r:3,rpe:8},{w:320,r:3,rpe:8},{w:320,r:3,rpe:8}]},
+    {name:'Romanian Deadlift',sets:[{w:250,r:5,rpe:7},{w:250,r:5,rpe:7.5},{w:250,r:5,rpe:7.5}]},
+  ],notes:'Felt strong. Hit a small PR on top squat set.'},
+  {id:'log2',date:'2025-04-29',day:'Tuesday',targetSnapshot:DEFAULT_TARGETS.Tuesday,exercises:[
+    {name:'Bench',sets:[{w:295,r:5,rpe:8},{w:295,r:5,rpe:8},{w:295,r:5,rpe:8.5},{w:285,r:5,rpe:8}]},
+    {name:'Close Grip Bench',sets:[{w:245,r:6,rpe:8},{w:245,r:6,rpe:8.5},{w:240,r:6,rpe:8}]},
+  ],notes:'Shoulder felt a little tight on warm-up. Stayed conservative.'},
+];
+
+const CUE_DATA = {
+  squat: [
+    // SETUP
+    {id:'sq1',phase:'Setup',text:'Bend the bar',desc:'Rotate elbows down aggressively before unracking. Activates lats and upper back, creating a rigid shelf.',problem:'Upper back collapsing under bar',when:'Every single rep, starting during setup',rating:5,tags:['setup','tension']},
+    {id:'sq2',phase:'Setup',text:'Screw feet into the floor',desc:'Create external rotation torque before unracking. Engages glutes and creates hip tension before you take the bar.',problem:'Loose hip position, knees caving',when:'Setup, hold through the entire lift',rating:5,tags:['setup','tension']},
+    {id:'sq3',phase:'Setup',text:'Own the bar position',desc:'Bar should be locked in on your shelf — upper back tight, bar not rolling. No wiggling or adjusting.',problem:'Bar shifting during walkout',when:'Before walkout cue',rating:4,tags:['setup']},
+    // BRACE
+    {id:'sq4',phase:'Brace',text:'360° brace — big air, belly out',desc:'Fill your abdomen from all sides. Push into the belt on the front, sides, and back equally. Ribcage down.',problem:'Anterior pelvic tilt under load, losing IAP',when:'Before every rep, after walkout',rating:5,tags:['brace','tension']},
+    {id:'sq5',phase:'Brace',text:'Lock your ribcage to your pelvis',desc:'Prevents spinal flexion under load. Think about shortening the distance between your bottom rib and hip crest.',problem:'Losing lumbar extension, butt wink at depth',when:'During bracing, maintain through lift',rating:4,tags:['brace']},
+    // WALKOUT
+    {id:'sq6',phase:'Walkout',text:'Walk out with tension — not a stroll',desc:'Two steps max. Keep the tight position from setup. Never let yourself go loose during the walkout.',problem:'Losing tightness before the rep starts',when:'Every walkout, especially heavy attempts',rating:5,tags:['setup','tension']},
+    {id:'sq7',phase:'Walkout',text:'Set your feet deliberately',desc:'Place your foot exactly where you want it. Consistent stance every time = consistent mechanics.',problem:'Inconsistent stance width or toe angle',when:'Every walkout',rating:4,tags:['setup']},
+    // DESCENT
+    {id:'sq8',phase:'Descent',text:'Spread the floor',desc:'Push your feet apart like you\'re trying to rip the floor in half. Maintains hip torque and knee tracking all the way down.',problem:'Knees caving inward on descent',when:'Initiate before descent, maintain to bottom',rating:5,tags:['descent','technical fix']},
+    {id:'sq9',phase:'Descent',text:'Sit back and down',desc:'Initiate with a hip hinge, then sit down. Not just straight down — back first, then down.',problem:'Knees tracking too far forward, quad-dominant descent',when:'Start of every descent',rating:4,tags:['descent']},
+    {id:'sq10',phase:'Descent',text:'Control the descent — don\'t crash',desc:'Own every inch on the way down. A controlled descent loads the stretch reflex cleanly.',problem:'Crashing at the bottom, losing tightness',when:'Heavy singles and max effort work',rating:4,tags:['descent','technical fix']},
+    // BOTTOM
+    {id:'sq11',phase:'Bottom',text:'Own the hole',desc:'Stay completely tight at depth. Load the stretch reflex without relaxing any tension. Your next inch down should feel no different than the top.',problem:'Relaxing briefly at depth, causing collapse',when:'Every rep, especially when depth is marginal',rating:5,tags:['bottom','tension']},
+    {id:'sq12',phase:'Bottom',text:'Do not bounce — absorb',desc:'Especially at competition depth, a sloppy bounce looks like a hitched squat. Absorb load with tension.',problem:'Excessive bounce, looks like depth cut',when:'Competition prep, judges present',rating:4,tags:['bottom','competition']},
+    // ASCENT
+    {id:'sq13',phase:'Ascent',text:'Drive the bar through the ceiling',desc:'Think about the bar, not your hips. This stops the classic early hip rise / good morning pattern.',problem:'Hips shooting up first, torso pitching forward',when:'Initiation of every drive phase',rating:5,tags:['ascent','technical fix']},
+    {id:'sq14',phase:'Ascent',text:'Chest up — lead with your chest',desc:'Initiate the drive by thinking about your upper chest rising first. Keeps the bar path vertical.',problem:'Good morning squat, forward lean',when:'As you break out of the hole',rating:5,tags:['ascent','technical fix']},
+    {id:'sq15',phase:'Ascent',text:'Push the floor away',desc:'Switch mental model from "standing up" to "pushing the floor away from you." Engages legs more fully.',problem:'Quad underactivation, hip-dominant ascent',when:'Alternative to ceiling cue based on feel',rating:4,tags:['ascent']},
+    // RACK
+    {id:'sq16',phase:'Rack',text:'Full lockout before stepping forward',desc:'Stand completely tall — hips, knees, everything locked. Step back into the rack only when fully stable.',problem:'Stepping in early, bar not supported properly',when:'Every rep in training, every competition squat',rating:5,tags:['rack','competition']},
+  ],
+  bench: [
+    // SETUP
+    {id:'bp1',phase:'Setup',text:'Pinch and pack the shoulder blades',desc:'Retract fully, then depress. Pull them together like you\'re trying to hold a pencil between them, then push them down.',problem:'Shoulder instability, pec dominance, shoulder pain',when:'Before unracking, must be done before touching the bar',rating:5,tags:['setup','tension']},
+    {id:'bp2',phase:'Setup',text:'Push traps through the bench',desc:'Drive your upper back contact points hard into the pad. This is your leg drive anchor point.',problem:'Losing arch, leg drive not transferring',when:'Setup and maintain through every rep',rating:5,tags:['setup','tension']},
+    {id:'bp3',phase:'Setup',text:'Arch is position, not a flex',desc:'Your arch is set by your upper back position and leg drive — not by cranking your lower back. Think chest up, not lower back up.',problem:'Losing arch under heavy loads, excessive lumbar reliance',when:'Initial setup',rating:4,tags:['setup']},
+    // GRIP
+    {id:'bp4',phase:'Grip',text:'Bar in the heel of your palm',desc:'Bar should sit low in your hand over the heel of the palm, not in the fingers. This aligns force directly through the wrist and forearm.',problem:'Wrist pain, bar rolling, inefficient force transfer',when:'Every setup, check before unracking',rating:5,tags:['setup','technical fix']},
+    {id:'bp5',phase:'Grip',text:'Bend the bar in half',desc:'Create external rotation torque with your hands — try to rotate your hands outward on the bar (can\'t actually move). Fires lats and keeps elbows aligned.',problem:'Elbow flare, lat disengagement',when:'Grip and maintain through entire lift',rating:5,tags:['setup','tension']},
+    // ARCH / SCAP
+    {id:'bp6',phase:'Arch / Scap',text:'Shoulder blades, not lower back',desc:'A legal arch comes from upper back position. Judges red light excessive arching — build yours from the top down.',problem:'Butt coming off bench, excessive lumbar arch',when:'Competition prep',rating:4,tags:['setup','competition']},
+    // UNRACK
+    {id:'bp7',phase:'Unrack',text:'Unrack with straight arms — no elbows bending',desc:'Lock out completely before bringing the bar to start position. Starting with bent elbows kills shoulder stability.',problem:'Losing shoulder position before the rep starts',when:'Every unrack',rating:4,tags:['setup']},
+    // DESCENT
+    {id:'bp8',phase:'Descent',text:'Pull the bar to your chest',desc:'Actively pull the bar down using your lats — don\'t let gravity do it. Keeps bar controlled and lats engaged.',problem:'Bar diving too fast, losing upper back tightness',when:'Every descent',rating:5,tags:['descent','tension']},
+    {id:'bp9',phase:'Descent',text:'Elbows at 45–50 degrees',desc:'Tuck your elbows at roughly 45-50° from your torso. This is the raw pressing sweet spot — shoulder-safe and powerful.',problem:'Elbow flare causing shoulder impingement',when:'Descent and touch',rating:5,tags:['descent','technical fix']},
+    {id:'bp10',phase:'Descent',text:'Bar to lower chest / solar plexus',desc:'Touch point depends on your arch and proportions, but generally lower than you think. Longer range of motion isn\'t more work when you\'re tight.',problem:'Touching too high, losing leg drive contribution',when:'Finding your touch point in training',rating:4,tags:['descent']},
+    // TOUCH
+    {id:'bp11',phase:'Touch',text:'Stay tight on the pause — do not relax',desc:'The pause is not a rest. Maintain full tension, brace, and lat engagement. Wait for the press command with everything loaded.',problem:'Relaxing under the bar, losing the lift on the way up',when:'Every competition lift, practice in training',rating:5,tags:['touch','competition']},
+    {id:'bp12',phase:'Touch',text:'Touch, don\'t bounce',desc:'The bar should touch your chest and pause. A bounce is a red light and also means you\'re relying on momentum, not strength.',problem:'Bouncing off chest, competition red light',when:'Competition prep',rating:5,tags:['touch','competition']},
+    // PRESS
+    {id:'bp13',phase:'Press',text:'Drive your legs through the floor',desc:'As you press, push your feet hard into the floor. This transfers force through your stable arch into the bar.',problem:'Leg drive not contributing to press',when:'Start of every press',rating:5,tags:['press','tension']},
+    {id:'bp14',phase:'Press',text:'Press back, not just up',desc:'The bar path should drift slightly back toward your face at lockout. This is the most mechanically efficient raw bench path.',problem:'Inefficient bar path, stalling at lockout',when:'During the press phase',rating:4,tags:['press','technical fix']},
+    // LOCKOUT
+    {id:'bp15',phase:'Lockout',text:'Squeeze triceps to finish',desc:'Actively lock out by contracting triceps. Don\'t coast the top 3 inches.',problem:'Missing lifts at lockout',when:'Last third of every press',rating:5,tags:['lockout']},
+    {id:'bp16',phase:'Lockout',text:'Hold it for the down signal',desc:'Keep full tension and extension until you hear the down command. Judges will red light early rack.',when:'Every competition rep',problem:'Early racking, red light',rating:5,tags:['lockout','competition']},
+  ],
+  deadlift: [
+    // SETUP
+    {id:'dl1',phase:'Setup',text:'Bar over mid-foot',desc:'Bar should be ~1 inch from your shins when you walk up to it. This is the optimal leverage position for every pull.',problem:'Bar drifting away from body, poor leverage',when:'Every time you set up — check before hinging',rating:5,tags:['setup']},
+    {id:'dl2',phase:'Setup',text:'Protect your armpits',desc:'Pack your lats like you\'re trying to protect your armpits from being tickled. Keeps bar close to the body throughout the pull.',problem:'Bar swinging away from body, upper back rounding',when:'Setup and maintain through entire pull',rating:5,tags:['setup','tension']},
+    {id:'dl3',phase:'Setup',text:'Brace standing, then descend',desc:'Take your big air and set your 360° brace while still standing tall. Then hinge down into position with tension already created.',problem:'Losing brace during setup, starting pull without tension',when:'Every setup',rating:5,tags:['setup','brace']},
+    // WEDGE
+    {id:'dl4',phase:'Wedge',text:'Wedge yourself into the bar',desc:'Don\'t hinge straight to the floor. Drive your hips down and push your shins into the bar to create wedge tension.',problem:'Starting pull without leg drive component, back-dominant pull',when:'Setup, especially for conventional',rating:5,tags:['wedge','tension']},
+    {id:'dl5',phase:'Wedge',text:'Chest up before you pull',desc:'Get your chest up and back set before breaking the floor. If you pull before your back is set, you\'ll round.',problem:'Immediate lower back rounding off the floor',when:'Every setup',rating:5,tags:['wedge','technical fix']},
+    // SLACK PULL
+    {id:'dl6',phase:'Slack Pull',text:'Take the slack out before you pull',desc:'Pull up gently to remove slack from the bar (you\'ll hear a click). Builds tension before breaking the floor — no jerking.',problem:'Jerking the bar, inconsistent start position',when:'Every pull — especially important at heavy weights',rating:5,tags:['slack pull','tension']},
+    {id:'dl7',phase:'Slack Pull',text:'Breathe and set one more time after the click',desc:'After you remove slack, make sure your brace and back position are exactly right before driving.',problem:'Rushing the pull after removing slack',when:'Top of slack pull, just before floor break',rating:4,tags:['slack pull','brace']},
+    // FLOOR BREAK
+    {id:'dl8',phase:'Floor Break',text:'Push the floor away',desc:'Think of the first part of the deadlift as a leg press. Engage quads and push the floor away rather than yanking the bar up.',problem:'Hips rising too fast, back rounding early',when:'First pull — from floor to knees',rating:5,tags:['floor break','technical fix']},
+    {id:'dl9',phase:'Floor Break',text:'Hips and shoulders rise at the same rate',desc:'Don\'t let your hips shoot up first. Maintain your back angle as the bar breaks the floor.',problem:'Good morning deadlift, hips shooting up',when:'Floor break to knee height',rating:5,tags:['floor break','technical fix']},
+    // MID-SHIN / KNEE
+    {id:'dl10',phase:'Mid-Shin / Knee',text:'Bar drags up the shins',desc:'Keep the bar in contact with (or very close to) your legs from floor to lockout. Any gap = wasted energy.',problem:'Bar drifting forward, back strain',when:'Continuous reminder from floor to lockout',rating:5,tags:['mid-shin / knee','tension']},
+    {id:'dl11',phase:'Mid-Shin / Knee',text:'Drive through your heels',desc:'At mid-shin, focus on driving heel into the floor. Prevents you from pitching forward onto your toes.',problem:'Losing balance forward at the knee',when:'Mid-shin through lockout',rating:4,tags:['mid-shin / knee']},
+    // LOCKOUT
+    {id:'dl12',phase:'Lockout',text:'Drive hips through the bar',desc:'At the knee, switch from leg press to hip drive. Aggressively squeeze glutes and drive hips into the bar.',problem:'Stalling at the knee / hip level',when:'From knee height to lockout',rating:5,tags:['lockout']},
+    {id:'dl13',phase:'Lockout',text:'Stand tall — don\'t hyperextend',desc:'Full lockout is hips and knees extended, standing vertical. Leaning back excessively at lockout is a red light.',problem:'Red light for not completing lift, OR hyperextension red light',when:'Every competition lift',rating:5,tags:['lockout','competition']},
+    // RESET
+    {id:'dl14',phase:'Reset',text:'Control the descent, own the drop',desc:'Don\'t just drop the bar. A controlled descent protects your lower back and prevents equipment damage.',problem:'Losing tightness during drop, back injury risk',when:'Training — especially during sets of multiple reps',rating:4,tags:['reset']},
+    {id:'dl15',phase:'Reset',text:'Full rebrace before the next rep',desc:'On touch-and-go or conventional multiple reps — fully rebrace before initiating the next pull.',problem:'Fatiguing on multi-rep sets, losing form on rep 3+',when:'Multi-rep sets',rating:5,tags:['reset','brace']},
+  ]
+};
+
+// ═══════════════════════════════════════════════
+// STORAGE
+// ═══════════════════════════════════════════════
+function saveApp() {
+  localStorage.setItem('ironDashboard_v2', JSON.stringify(APP));
+}
+
+function loadApp() {
+  const raw = localStorage.getItem('ironDashboard_v2');
+  if (raw) {
+    try { APP = JSON.parse(raw); }
+    catch(e) { APP = buildDefault(); }
+  } else {
+    APP = buildDefault();
+  }
+  // Ensure all keys exist
+  if (!APP.profile) APP.profile = {name:'Athlete',wc:'82.5kg'};
+  if (!APP.maxes)   APP.maxes  = {sq:460,bp:350,dl:518};
+  if (!APP.accessories) APP.accessories = DEFAULT_ACCESSORIES;
+  if (!APP.targets) APP.targets = JSON.parse(JSON.stringify(DEFAULT_TARGETS));
+  if (!APP.logs)    APP.logs   = JSON.parse(JSON.stringify(DEFAULT_LOGS));
+  if (!APP.nutrition) APP.nutrition = [];
+  if (!APP.cueFavs) APP.cueFavs = [];
+  if (!APP.cueFilters) APP.cueFilters = {squat:'all',bench:'all',deadlift:'all'};
+  if (!APP.rpeActiveLift) APP.rpeActiveLift = 'sq';
+  if (!APP.unit) APP.unit = 'lbs';
+  saveApp();
+}
+
+function buildDefault() {
+  return {
+    profile: {name:'Powerlifter',wc:'82.5kg'},
+    maxes:   {sq:460,bp:350,dl:518},
+    accessories: JSON.parse(JSON.stringify(DEFAULT_ACCESSORIES)),
+    targets: JSON.parse(JSON.stringify(DEFAULT_TARGETS)),
+    logs:    JSON.parse(JSON.stringify(DEFAULT_LOGS)),
+    nutrition: [],
+    cueFavs: [],
+    cueFilters: {squat:'all',bench:'all',deadlift:'all'},
+    rpeActiveLift: 'sq',
+    unit: 'lbs',
+  };
+}
+
+// ═══════════════════════════════════════════════
+// HELPERS
+// ═══════════════════════════════════════════════
+function uid() { return 'id_'+Math.random().toString(36).substr(2,9); }
+function today() { return new Date().toISOString().split('T')[0]; }
+function fmtDate(d) {
+  if(!d) return '';
+  const [y,m,day] = d.split('-');
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  return `${months[parseInt(m)-1]} ${parseInt(day)}, ${y}`;
+}
+function r5(n) { return Math.round(n/5)*5; }
+function e1RM(w,r) { return r===1 ? w : w*(1+r/30); }
+function clamp(v,lo,hi) { return Math.max(lo,Math.min(hi,v)); }
+
+// ── UNIT HELPERS ──
+const LBS_TO_KG = 0.453592;
+const KG_TO_LBS = 2.20462;
+function isKg() { return APP.unit === 'kg'; }
+function unitLabel() { return APP.unit || 'lbs'; }
+// Display a stored-lbs value in current unit, rounded to nearest 0.5kg or nearest 5lbs
+function dispW(lbs) {
+  if(!lbs && lbs!==0) return '';
+  if(isKg()) return Math.round(lbs * LBS_TO_KG * 2) / 2;
+  return lbs;
+}
+// Convert a user-entered value back to lbs for storage
+function toStoredLbs(val) {
+  if(isKg()) return Math.round(val * KG_TO_LBS / 5) * 5;
+  return val;
+}
+function unitSuffix() { return isKg() ? 'kg' : 'lbs'; }
+
+function setUnit(u) {
+  APP.unit = u;
+  saveApp();
+  renderDashboard();
+  syncRPEInputs();
+  renderRPETable();
+  document.querySelectorAll('.unit-label').forEach(el => el.textContent = unitSuffix());
+  syncSettingsUnit();
+}
+
+function showTab(name) {
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  const tabs = document.querySelectorAll('.nav-tab');
+  const names=['dashboard','log','targets','split','graphs','accessories','rpe','cues','nutrition','settings'];
+  const idx = names.indexOf(name);
+  if(idx>=0) tabs[idx].classList.add('active');
+  // Trigger renders
+  if(name==='split') renderSplit();
+  if(name==='graphs') renderGraphs();
+  if(name==='rpe') { syncRPEInputs(); renderRPETable(); }
+  if(name==='cues') renderCues();
+  if(name==='accessories') renderAccessories();
+  if(name==='log') renderLogTab();
+  if(name==='targets') renderTargetsTab();
+  if(name==='dashboard') renderDashboard();
+  if(name==='settings') syncSettingsUnit();
+}
+
+function showNavTab(name) {
+  showTab(name);
+}
+
+function showSubtab(group, panelId, btn) {
+  const panel = document.getElementById(panelId);
+  if(!panel) return;
+  const bar = btn ? btn.parentElement : null;
+  if(bar) bar.querySelectorAll('.subtab').forEach(t=>t.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  const parent = panel.parentElement;
+  if(parent) parent.querySelectorAll('.subtab-panel').forEach(p=>p.classList.remove('active'));
+  panel.classList.add('active');
+  if(group==='graphs') renderGraphPanel(panelId);
+  if(group==='cues') renderCuePanel(panelId);
+}
+
+function openModal(id) { document.getElementById(id).classList.add('open'); }
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+
+function confirmAction(title, msg, fn) {
+  document.getElementById('confirmTitle').textContent = title;
+  document.getElementById('confirmMsg').textContent = msg;
+  document.getElementById('confirmOkBtn').onclick = ()=>{ fn(); closeModal('modal-confirm'); };
+  openModal('modal-confirm');
+}
+
+// ═══════════════════════════════════════════════
+// DASHBOARD
+// ═══════════════════════════════════════════════
+function renderDashboard() {
+  const p = APP.profile;
+  const m = APP.maxes;
+  document.getElementById('profile-name-display').textContent = p.name;
+  document.getElementById('profile-wc-display').textContent   = p.wc;
+  document.getElementById('profile-wc-badge').textContent     = p.wc;
+  document.getElementById('dash-sq').textContent = dispW(m.sq);
+  document.getElementById('dash-bp').textContent = dispW(m.bp);
+  document.getElementById('dash-dl').textContent = dispW(m.dl);
+  const totalLbs = m.sq + m.bp + m.dl;
+  const totalDisp = isKg() ? Math.round(totalLbs * LBS_TO_KG) : totalLbs;
+  document.getElementById('dash-total').textContent = totalDisp;
+  document.getElementById('topbar-total').textContent = totalDisp + (isKg()?'kg':'#');
+  // Update all unit labels
+  document.querySelectorAll('.unit-label').forEach(el => el.textContent = unitSuffix());
+  // Update max modal label
+  const maxModalLabel = document.querySelector('#modal-editMax .form-label');
+  if(maxModalLabel) maxModalLabel.textContent = `New Max (${unitSuffix()})`;
+  const maxModalInput = document.getElementById('editMaxInput');
+  if(maxModalInput) maxModalInput.placeholder = isKg() ? 'e.g. 210' : 'e.g. 460';
+
+  // Latest BW
+  const bwEntries = APP.nutrition.filter(e=>e.bw);
+  if(bwEntries.length) {
+    const latest = bwEntries.sort((a,b)=>b.date.localeCompare(a.date))[0];
+    document.getElementById('dash-bw').textContent = latest.bw;
+  }
+
+  // Recent activity
+  const logs = [...APP.logs].sort((a,b)=>b.date.localeCompare(a.date));
+  const recentEl = document.getElementById('dash-recent');
+  if(!logs.length) {
+    recentEl.innerHTML = '<div style="color:var(--silver);font-size:13px;">No sessions logged yet.</div>';
+    return;
+  }
+  const last = logs[0];
+  const totalSets = last.exercises ? last.exercises.reduce((s,e)=>s+e.sets.length,0) : 0;
+  recentEl.innerHTML = `
+    <div style="margin-bottom:8px;">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.22em;color:var(--silver);text-transform:uppercase;margin-bottom:3px;">${last.day} · ${fmtDate(last.date)}</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--white);">${last.day}</div>
+      <div style="font-size:12px;color:var(--silver);margin-top:2px;">${totalSets} sets logged${last.notes?` · "${last.notes.substring(0,40)}…"`:''}
+      </div>
+    </div>
+    <button class="btn btn-ghost btn-sm" onclick="showTab('log');showNavTab('log')">View Log →</button>`;
+}
+
+function editField(field) {
+  const displays = {name:'profile-name-display',wc:'profile-wc-display'};
+  const edits = {name:'profile-name-edit',wc:'profile-wc-edit'};
+  const inputs = {name:'input-name',wc:'input-wc'};
+  document.getElementById(displays[field]).style.display='none';
+  document.getElementById(edits[field]).classList.add('shown');
+  const inp = document.getElementById(inputs[field]);
+  inp.value = field==='name' ? APP.profile.name : APP.profile.wc;
+  inp.focus();
+}
+
+function saveField(field) {
+  const inputs = {name:'input-name',wc:'input-wc'};
+  const displays = {name:'profile-name-display',wc:'profile-wc-display'};
+  const edits = {name:'profile-name-edit',wc:'profile-wc-edit'};
+  const val = document.getElementById(inputs[field]).value.trim();
+  if(val) {
+    if(field==='name') APP.profile.name = val;
+    else APP.profile.wc = val;
+    saveApp();
+  }
+  document.getElementById(displays[field]).style.display='';
+  document.getElementById(edits[field]).classList.remove('shown');
+  renderDashboard();
+}
+
+let editMaxField = '';
+function editMax(field) {
+  editMaxField = field;
+  const labels = {sq:'Squat',bp:'Bench',dl:'Deadlift'};
+  document.getElementById('editMaxTitle').textContent = 'Edit '+labels[field]+' Max';
+  document.getElementById('editMaxInput').value = dispW(APP.maxes[field]);
+  const lbl = document.querySelector('#modal-editMax .form-label');
+  if(lbl) lbl.textContent = `New Max (${unitSuffix()})`;
+  openModal('modal-editMax');
+  setTimeout(()=>document.getElementById('editMaxInput').focus(),100);
+}
+function saveEditMax() {
+  const raw = parseFloat(document.getElementById('editMaxInput').value);
+  if(!isNaN(raw) && raw>0) {
+    // Always store in lbs internally
+    const lbs = isKg() ? Math.round(raw * KG_TO_LBS / 5) * 5 : raw;
+    APP.maxes[editMaxField] = lbs;
+    // Sync RPE inputs (show in current unit)
+    document.getElementById('rpe-'+editMaxField).value = dispW(lbs);
+    saveApp();
+    renderDashboard();
+  }
+  closeModal('modal-editMax');
+}
+
+function quickLogToday() {
+  showTab('log');
+  const dayIdx = (new Date().getDay()+6)%7; // Mon=0
+  const dayBtn = document.querySelectorAll('#logDayTabs .subtab')[dayIdx];
+  if(dayBtn) dayBtn.click();
+}
+
+function openAddBW() {
+  document.getElementById('bw-date').value = today();
+  document.getElementById('bw-val').value = '';
+  openModal('modal-addBW');
+}
+function saveQuickBW() {
+  const d = document.getElementById('bw-date').value || today();
+  const v = parseFloat(document.getElementById('bw-val').value);
+  if(isNaN(v)||v<=0) return;
+  const existing = APP.nutrition.find(e=>e.date===d);
+  if(existing) existing.bw = v;
+  else APP.nutrition.push({id:uid(),date:d,bw:v,cal:null,pro:null,carbs:null,fat:null,notes:''});
+  saveApp();
+  renderDashboard();
+  closeModal('modal-addBW');
+}
+
+// ═══════════════════════════════════════════════
+// WORKOUT LOG
+// ═══════════════════════════════════════════════
+function renderLogTab() {
+  const tabBar = document.getElementById('logDayTabs');
+  const panels = document.getElementById('logDayPanels');
+  tabBar.innerHTML = '';
+  panels.innerHTML = '';
+  DAYS.forEach((day,i) => {
+    const btn = document.createElement('button');
+    btn.className = 'subtab'+(i===0?' active':'');
+    btn.textContent = DAYS_SHORT[i];
+    btn.onclick = ()=>{
+      tabBar.querySelectorAll('.subtab').forEach(t=>t.classList.remove('active'));
+      btn.classList.add('active');
+      panels.querySelectorAll('.subtab-panel').forEach(p=>p.classList.remove('active'));
+      document.getElementById('logPanel_'+day).classList.add('active');
+    };
+    tabBar.appendChild(btn);
+    const panel = document.createElement('div');
+    panel.id = 'logPanel_'+day;
+    panel.className = 'subtab-panel'+(i===0?' active':'');
+    panel.innerHTML = buildLogDayPanel(day);
+    panels.appendChild(panel);
+  });
+  renderLogHistory();
+}
+
+function buildLogDayPanel(day) {
+  const target = APP.targets[day];
+  const isRest = target.type === 'rest';
+  let html = '';
+
+  // Target preview
+  html += `<div style="margin:12px 16px 0;">
+    <div style="font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:.25em;color:var(--silver);text-transform:uppercase;margin-bottom:6px;">Target: ${target.label}</div>`;
+  if(isRest) {
+    html += `<div class="rest-day-card" style="margin:0 0 12px;"><div class="rest-day-title">REST DAY</div><div class="rest-day-sub">No training scheduled</div></div>`;
+  } else {
+    html += `<div style="background:var(--card);border:1px solid var(--line);padding:10px 12px;margin-bottom:12px;">`;
+    target.exercises.forEach(ex=>{
+      html += `<div style="margin-bottom:6px;">
+        <span style="font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;color:var(--off);text-transform:uppercase;">${ex.name}</span>
+        <span style="font-size:12px;color:var(--silver);"> — ${ex.sets.length}×${ex.sets[0]?.r}@RPE${ex.sets[0]?.rpe} ${ex.sets[0]?.w>0?'@ '+ex.sets[0]?.w+'lbs':''}</span>
+      </div>`;
+    });
+    html += `</div>`;
+  }
+  html += `</div>`;
+
+  // Actual log section
+  html += `<div style="padding:0 16px;">
+    <div class="phase-label">Actual Performance</div>
+    <div id="logExercises_${day}">`;
+
+  // Default exercises from target
+  if(!isRest) {
+    target.exercises.forEach((ex,ei)=>{
+      html += buildLogExerciseHTML(day,ei,ex.name,ex.sets);
+    });
+  }
+  html += `</div>`;
+
+  if(!isRest) {
+    html += `<button class="btn btn-ghost btn-sm btn-full" style="margin:8px 0;" onclick="addLogExercise('${day}')">+ Add Exercise</button>`;
+  }
+
+  html += `<div class="form-row" style="margin-top:12px;">
+    <label class="form-label">Session Notes</label>
+    <textarea id="logNotes_${day}" placeholder="Optional session notes…"></textarea>
+  </div>
+  <div class="form-row">
+    <label class="form-label">Date</label>
+    <input type="date" id="logDate_${day}" value="${today()}">
+  </div>
+  <button class="btn btn-red btn-full" style="margin:4px 0 20px;" onclick="logSession('${day}')">Log Session</button>
+  </div>`;
+
+  return html;
+}
+
+function buildLogExerciseHTML(day, exIdx, name, sets) {
+  const exercises = getExerciseOptions();
+  let html = `<div class="card" style="margin:0 0 10px;" id="logEx_${day}_${exIdx}">
+    <div class="card-head">
+      <select onchange="updateLogExName('${day}',${exIdx},this.value)" style="background:transparent;border:none;color:var(--white);font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:0;max-width:180px;">
+        ${exercises.map(e=>`<option value="${e}" ${e===name?'selected':''}>${e}</option>`).join('')}
+      </select>
+      <button class="btn btn-danger btn-xs" onclick="removeLogExercise('${day}',${exIdx})">✕</button>
+    </div>
+    <div class="card-body" style="padding:10px;">
+      <div style="display:grid;grid-template-columns:36px 1fr 60px 70px 60px 36px;gap:4px;align-items:center;margin-bottom:4px;padding:0 0 4px;border-bottom:1px solid var(--line);">
+        <span style="font-family:'Barlow Condensed',sans-serif;font-size:9px;letter-spacing:.15em;color:var(--silver);text-transform:uppercase;text-align:center;">#</span>
+        <span style="font-family:'Barlow Condensed',sans-serif;font-size:9px;letter-spacing:.15em;color:var(--silver);text-transform:uppercase;">Exercise</span>
+        <span style="font-family:'Barlow Condensed',sans-serif;font-size:9px;letter-spacing:.15em;color:var(--silver);text-transform:uppercase;text-align:center;">Wt</span>
+        <span style="font-family:'Barlow Condensed',sans-serif;font-size:9px;letter-spacing:.15em;color:var(--silver);text-transform:uppercase;text-align:center;">Reps</span>
+        <span style="font-family:'Barlow Condensed',sans-serif;font-size:9px;letter-spacing:.15em;color:var(--silver);text-transform:uppercase;text-align:center;">RPE</span>
+        <span></span>
+      </div>
+      <div id="logSets_${day}_${exIdx}">`;
+
+  sets.forEach((s,si)=>{
+    html += buildLogSetRow(day,exIdx,si,s.w,s.r,s.rpe);
+  });
+
+  html += `</div>
+      <div style="display:flex;gap:6px;margin-top:6px;">
+        <button class="btn btn-ghost btn-xs" onclick="addLogSet('${day}',${exIdx})">+ Set</button>
+        <button class="btn btn-ghost btn-xs" onclick="dupLogSet('${day}',${exIdx})">⊕ Dup</button>
+      </div>
+    </div>
+  </div>`;
+  return html;
+}
+
+function buildLogSetRow(day,exIdx,setIdx,w,r,rpe) {
+  return `<div class="set-row" id="logSetRow_${day}_${exIdx}_${setIdx}">
+    <span class="set-num">${setIdx+1}</span>
+    <span></span>
+    <input type="number" placeholder="lbs" value="${w||''}" id="logW_${day}_${exIdx}_${setIdx}" min="0" step="5">
+    <input type="number" placeholder="reps" value="${r||''}" id="logR_${day}_${exIdx}_${setIdx}" min="1" step="1">
+    <input type="number" placeholder="RPE" value="${rpe||''}" id="logRPE_${day}_${exIdx}_${setIdx}" min="0" max="10" step="0.5">
+    <button class="btn btn-danger btn-xs" onclick="removeLogSet('${day}',${exIdx},${setIdx})" style="padding:4px 6px;">✕</button>
+  </div>`;
+}
+
+// Track exercise names per day in memory
+const logExNames = {};
+
+function getLogExercises(day) {
+  const el = document.getElementById('logExercises_'+day);
+  if(!el) return [];
+  const result = [];
+  el.querySelectorAll('[id^="logEx_'+day+'_"]').forEach(exEl=>{
+    const id = exEl.id;
+    const exIdx = parseInt(id.split('_').pop());
+    const nameEl = exEl.querySelector('select');
+    const name = nameEl ? nameEl.value : '';
+    const sets = [];
+    exEl.querySelectorAll('[id^="logSetRow_'+day+'_'+exIdx+'_"]').forEach(setEl=>{
+      const si = parseInt(setEl.id.split('_').pop());
+      const w = parseFloat(document.getElementById(`logW_${day}_${exIdx}_${si}`)?.value)||0;
+      const r = parseInt(document.getElementById(`logR_${day}_${exIdx}_${si}`)?.value)||0;
+      const rpe = parseFloat(document.getElementById(`logRPE_${day}_${exIdx}_${si}`)?.value)||0;
+      sets.push({w,r,rpe});
+    });
+    result.push({name,sets});
+  });
+  return result;
+}
+
+function getExerciseOptions() {
+  const base = ['Squat','Bench','Deadlift'];
+  const accs = APP.accessories.filter(a=>!a.archived).map(a=>a.name);
+  return [...base,...accs];
+}
+
+let _logExCounters = {};
+function addLogExercise(day) {
+  if(!_logExCounters[day]) _logExCounters[day] = APP.targets[day].exercises.length;
+  const idx = _logExCounters[day]++;
+  const container = document.getElementById('logExercises_'+day);
+  const div = document.createElement('div');
+  div.innerHTML = buildLogExerciseHTML(day,idx,'Squat',[{w:'',r:'',rpe:''}]);
+  container.appendChild(div.firstElementChild);
+}
+
+function removeLogExercise(day,exIdx) {
+  document.getElementById(`logEx_${day}_${exIdx}`)?.remove();
+}
+
+function updateLogExName(day,exIdx,val) {}
+
+function addLogSet(day,exIdx) {
+  const container = document.getElementById(`logSets_${day}_${exIdx}`);
+  if(!container) return;
+  const existing = container.querySelectorAll('.set-row');
+  const si = existing.length;
+  // Get last set values for easy duplication
+  const lastW = existing.length ? document.getElementById(`logW_${day}_${exIdx}_${si-1}`)?.value||'' : '';
+  const lastR = existing.length ? document.getElementById(`logR_${day}_${exIdx}_${si-1}`)?.value||'' : '';
+  const lastRPE = existing.length ? document.getElementById(`logRPE_${day}_${exIdx}_${si-1}`)?.value||'' : '';
+  const div = document.createElement('div');
+  div.innerHTML = buildLogSetRow(day,exIdx,si,'','','');
+  container.appendChild(div.firstElementChild);
+}
+
+function dupLogSet(day,exIdx) {
+  const container = document.getElementById(`logSets_${day}_${exIdx}`);
+  if(!container) return;
+  const existing = container.querySelectorAll('.set-row');
+  const si = existing.length;
+  if(si===0) return addLogSet(day,exIdx);
+  const lastW = document.getElementById(`logW_${day}_${exIdx}_${si-1}`)?.value||'';
+  const lastR = document.getElementById(`logR_${day}_${exIdx}_${si-1}`)?.value||'';
+  const lastRPE = document.getElementById(`logRPE_${day}_${exIdx}_${si-1}`)?.value||'';
+  const div = document.createElement('div');
+  div.innerHTML = buildLogSetRow(day,exIdx,si,lastW,lastR,lastRPE);
+  container.appendChild(div.firstElementChild);
+}
+
+function removeLogSet(day,exIdx,setIdx) {
+  document.getElementById(`logSetRow_${day}_${exIdx}_${setIdx}`)?.remove();
+}
+
+function logSession(day) {
+  const target = APP.targets[day];
+  const isRest = target.type==='rest';
+  const exercises = isRest ? [] : getLogExercises(day);
+  const notes = document.getElementById(`logNotes_${day}`)?.value||'';
+  const date = document.getElementById(`logDate_${day}`)?.value||today();
+
+  if(!isRest && exercises.length===0) {
+    alert('Add at least one exercise before logging.');
+    return;
+  }
+  if(!isRest && exercises.every(e=>e.sets.every(s=>!s.w&&!s.r))) {
+    alert('Please fill in at least one set.');
+    return;
+  }
+
+  const entry = {
+    id: uid(),
+    date, day,
+    exercises,
+    notes,
+    targetSnapshot: JSON.parse(JSON.stringify(target))
+  };
+  APP.logs.push(entry);
+  saveApp();
+  renderLogHistory();
+  renderDashboard();
+  alert('Session logged!');
+}
+
+function renderLogHistory() {
+  const el = document.getElementById('logHistory');
+  if(!el) return;
+  const logs = [...APP.logs].sort((a,b)=>b.date.localeCompare(a.date));
+  if(!logs.length) {
+    el.innerHTML = '<div class="empty-state"><div class="empty-state-title">No sessions logged</div></div>';
+    return;
+  }
+  el.innerHTML = logs.map(log=>{
+    const totalSets = log.exercises ? log.exercises.reduce((s,e)=>s+e.sets.length,0) : 0;
+    return `<div class="log-entry">
+      <div class="log-entry-head" onclick="viewLogEntry('${log.id}')">
+        <div>
+          <div class="log-day">${log.day}</div>
+          <div class="log-date">${fmtDate(log.date)}</div>
+          <div class="log-sets-summary">${totalSets} sets${log.notes?' · '+log.notes.substring(0,30):''}</div>
+        </div>
+        <span style="color:var(--silver);font-size:18px;">›</span>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function viewLogEntry(id) {
+  const log = APP.logs.find(l=>l.id===id);
+  if(!log) return;
+  document.getElementById('viewLogTitle').textContent = log.day+' · '+fmtDate(log.date);
+  let html = '';
+  if(log.exercises && log.exercises.length) {
+    log.exercises.forEach(ex=>{
+      html += `<div style="margin-bottom:12px;">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;">${ex.name}</div>`;
+      ex.sets.forEach((s,i)=>{
+        html += `<div style="font-size:13px;color:var(--off);margin-bottom:3px;">Set ${i+1}: ${dispW(s.w)}${unitSuffix()} × ${s.r} reps @ RPE ${s.rpe}</div>`;
+      });
+      html += `</div>`;
+    });
+  }
+  if(log.notes) html += `<div style="font-size:12px;color:var(--silver);border-top:1px solid var(--line);padding-top:10px;margin-top:4px;">${log.notes}</div>`;
+  document.getElementById('viewLogBody').innerHTML = html;
+  document.getElementById('deleteLogBtn').onclick = ()=>confirmAction('Delete Log','Delete this session log? This cannot be undone.',()=>{
+    APP.logs = APP.logs.filter(l=>l.id!==id);
+    saveApp();
+    closeModal('modal-viewLog');
+    renderLogHistory();
+    renderDashboard();
+  });
+  openModal('modal-viewLog');
+}
+
+// ═══════════════════════════════════════════════
+// TARGETS
+// ═══════════════════════════════════════════════
+function renderTargetsTab() {
+  const tabBar = document.getElementById('targetDayTabs');
+  const panels = document.getElementById('targetDayPanels');
+  tabBar.innerHTML = '';
+  panels.innerHTML = '';
+  DAYS.forEach((day,i)=>{
+    const btn = document.createElement('button');
+    btn.className = 'subtab'+(i===0?' active':'');
+    btn.textContent = DAYS_SHORT[i];
+    btn.onclick = ()=>{
+      tabBar.querySelectorAll('.subtab').forEach(t=>t.classList.remove('active'));
+      btn.classList.add('active');
+      panels.querySelectorAll('.subtab-panel').forEach(p=>p.classList.remove('active'));
+      document.getElementById('targetPanel_'+day).classList.add('active');
+    };
+    tabBar.appendChild(btn);
+    const panel = document.createElement('div');
+    panel.id = 'targetPanel_'+day;
+    panel.className = 'subtab-panel'+(i===0?' active':'');
+    panel.innerHTML = buildTargetDayPanel(day);
+    panels.appendChild(panel);
+  });
+}
+
+function buildTargetDayPanel(day) {
+  const t = APP.targets[day];
+  let html = `<div style="padding:14px 16px 0;">
+    <div style="display:flex;gap:8px;align-items:center;margin-bottom:12px;flex-wrap:wrap;">
+      <select id="targetType_${day}" onchange="updateTargetType('${day}')" style="flex:1;">
+        <option value="training" ${t.type==='training'?'selected':''}>Training Day</option>
+        <option value="rest" ${t.type==='rest'?'selected':''}>Rest Day</option>
+      </select>
+      <input type="text" id="targetLabel_${day}" value="${t.label}" placeholder="Day label" style="flex:2;" onchange="updateTargetLabel('${day}')">
+    </div>`;
+
+  if(t.type==='rest') {
+    html += `<div class="rest-day-card" style="margin:0 0 16px;"><div class="rest-day-title">REST DAY</div></div>`;
+  } else {
+    html += `<div id="targetExercises_${day}">`;
+    t.exercises.forEach((ex,ei)=>{
+      html += buildTargetExerciseHTML(day,ei,ex.name,ex.sets);
+    });
+    html += `</div>
+    <button class="btn btn-ghost btn-sm btn-full" style="margin-bottom:16px;" onclick="addTargetExercise('${day}')">+ Add Exercise</button>`;
+  }
+
+  html += `<button class="btn btn-red btn-full" onclick="saveTargets('${day}')">Save ${day}</button></div>`;
+  return html;
+}
+
+function buildTargetExerciseHTML(day,exIdx,name,sets) {
+  const exercises = getExerciseOptions();
+  let html = `<div class="card" style="margin:0 0 10px;border-left:3px solid var(--red-d);" id="targetEx_${day}_${exIdx}">
+    <div class="card-head">
+      <select id="targetExName_${day}_${exIdx}" style="background:transparent;border:none;color:var(--white);font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:0;max-width:180px;">
+        ${exercises.map(e=>`<option value="${e}" ${e===name?'selected':''}>${e}</option>`).join('')}
+      </select>
+      <button class="btn btn-danger btn-xs" onclick="removeTargetExercise('${day}',${exIdx})">✕</button>
+    </div>
+    <div class="card-body" style="padding:10px;">
+      <div id="targetSets_${day}_${exIdx}">`;
+  sets.forEach((s,si)=>{
+    html += buildTargetSetRow(day,exIdx,si,s.w,s.r,s.rpe);
+  });
+  html += `</div>
+      <div style="display:flex;gap:6px;margin-top:6px;">
+        <button class="btn btn-ghost btn-xs" onclick="addTargetSet('${day}',${exIdx})">+ Set</button>
+        <button class="btn btn-ghost btn-xs" onclick="dupTargetSet('${day}',${exIdx})">⊕ Dup</button>
+      </div>
+    </div>
+  </div>`;
+  return html;
+}
+
+function buildTargetSetRow(day,exIdx,setIdx,w,r,rpe) {
+  return `<div class="set-row" id="targetSetRow_${day}_${exIdx}_${setIdx}">
+    <span class="set-num">${setIdx+1}</span>
+    <span></span>
+    <input type="number" placeholder="lbs" value="${w||''}" id="targetW_${day}_${exIdx}_${setIdx}" min="0" step="5">
+    <input type="number" placeholder="reps" value="${r||''}" id="targetR_${day}_${exIdx}_${setIdx}" min="1" step="1">
+    <input type="number" placeholder="RPE" value="${rpe||''}" id="targetRPE_${day}_${exIdx}_${setIdx}" min="0" max="10" step="0.5">
+    <button class="btn btn-danger btn-xs" onclick="removeTargetSet('${day}',${exIdx},${setIdx})" style="padding:4px 6px;">✕</button>
+  </div>`;
+}
+
+let _targetExCounters = {};
+function addTargetExercise(day) {
+  if(!_targetExCounters[day]) _targetExCounters[day] = APP.targets[day].exercises.length;
+  const idx = _targetExCounters[day]++;
+  const container = document.getElementById('targetExercises_'+day);
+  const div = document.createElement('div');
+  div.innerHTML = buildTargetExerciseHTML(day,idx,'Squat',[{w:'',r:'',rpe:''}]);
+  container.appendChild(div.firstElementChild);
+}
+function removeTargetExercise(day,exIdx) { document.getElementById(`targetEx_${day}_${exIdx}`)?.remove(); }
+
+function addTargetSet(day,exIdx) {
+  const container = document.getElementById(`targetSets_${day}_${exIdx}`);
+  if(!container) return;
+  const si = container.querySelectorAll('.set-row').length;
+  const div = document.createElement('div');
+  div.innerHTML = buildTargetSetRow(day,exIdx,si,'','','');
+  container.appendChild(div.firstElementChild);
+}
+function dupTargetSet(day,exIdx) {
+  const container = document.getElementById(`targetSets_${day}_${exIdx}`);
+  if(!container) return;
+  const si = container.querySelectorAll('.set-row').length;
+  if(si===0) return addTargetSet(day,exIdx);
+  const lW = document.getElementById(`targetW_${day}_${exIdx}_${si-1}`)?.value||'';
+  const lR = document.getElementById(`targetR_${day}_${exIdx}_${si-1}`)?.value||'';
+  const lRPE = document.getElementById(`targetRPE_${day}_${exIdx}_${si-1}`)?.value||'';
+  const div = document.createElement('div');
+  div.innerHTML = buildTargetSetRow(day,exIdx,si,lW,lR,lRPE);
+  container.appendChild(div.firstElementChild);
+}
+function removeTargetSet(day,exIdx,setIdx) { document.getElementById(`targetSetRow_${day}_${exIdx}_${setIdx}`)?.remove(); }
+
+function updateTargetType(day) {
+  const val = document.getElementById(`targetType_${day}`)?.value;
+  APP.targets[day].type = val;
+  saveApp();
+  renderTargetsTab();
+  renderSplit();
+}
+function updateTargetLabel(day) {
+  const val = document.getElementById(`targetLabel_${day}`)?.value||'';
+  APP.targets[day].label = val;
+  saveApp();
+}
+
+function getTargetExercises(day) {
+  const result = [];
+  const container = document.getElementById('targetExercises_'+day);
+  if(!container) return result;
+  container.querySelectorAll('[id^="targetEx_'+day+'_"]').forEach(exEl=>{
+    const exIdx = parseInt(exEl.id.split('_').pop());
+    const name = document.getElementById(`targetExName_${day}_${exIdx}`)?.value||'';
+    const sets = [];
+    const setsContainer = document.getElementById(`targetSets_${day}_${exIdx}`);
+    if(setsContainer) {
+      setsContainer.querySelectorAll('.set-row').forEach(setEl=>{
+        const si = parseInt(setEl.id.split('_').pop());
+        const w = parseFloat(document.getElementById(`targetW_${day}_${exIdx}_${si}`)?.value)||0;
+        const r = parseInt(document.getElementById(`targetR_${day}_${exIdx}_${si}`)?.value)||0;
+        const rpe = parseFloat(document.getElementById(`targetRPE_${day}_${exIdx}_${si}`)?.value)||0;
+        sets.push({w,r,rpe});
+      });
+    }
+    if(name) result.push({name,sets});
+  });
+  return result;
+}
+
+function saveTargets(day) {
+  const t = APP.targets[day];
+  t.label = document.getElementById(`targetLabel_${day}`)?.value||t.label;
+  t.type  = document.getElementById(`targetType_${day}`)?.value||t.type;
+  if(t.type==='training') {
+    t.exercises = getTargetExercises(day);
+  }
+  saveApp();
+  alert(`${day} targets saved!`);
+  renderSplit();
+}
+
+// ═══════════════════════════════════════════════
+// SPLIT VIEW
+// ═══════════════════════════════════════════════
+function renderSplit() {
+  const el = document.getElementById('splitView');
+  if(!el) return;
+  let html = '';
+  DAYS.forEach(day=>{
+    const t = APP.targets[day];
+    if(t.type==='rest') {
+      html += `<div class="rest-day-card">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.25em;color:var(--silver);text-transform:uppercase;margin-bottom:4px;">${day}</div>
+        <div class="rest-day-title">REST DAY</div>
+      </div>`;
+    } else {
+      html += `<div class="card">
+        <div class="card-head">
+          <span class="card-title">${day}</span>
+          <span class="badge badge-red">${t.label}</span>
+        </div>
+        <div class="card-body" style="padding:10px 14px;">`;
+      t.exercises.forEach(ex=>{
+        const sets = ex.sets;
+        const s0 = sets[0]||{};
+        html += `<div style="margin-bottom:8px;">
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;color:var(--white);text-transform:uppercase;">${ex.name}</div>
+          <div style="font-size:12px;color:var(--silver);">${sets.length} sets`;
+        if(s0.r) html += ` × ${s0.r} reps`;
+        if(s0.rpe) html += ` @ RPE ${s0.rpe}`;
+        if(s0.w) html += ` — ${s0.w} lbs`;
+        html += `</div></div>`;
+      });
+      html += `</div></div>`;
+    }
+  });
+  el.innerHTML = html;
+}
+
+// ═══════════════════════════════════════════════
+// RPE TABLE
+// ═══════════════════════════════════════════════
+let rpeActiveLift = 'sq';
+
+function syncRPEInputs() {
+  document.getElementById('rpe-sq').value = dispW(APP.maxes.sq);
+  document.getElementById('rpe-bp').value = dispW(APP.maxes.bp);
+  document.getElementById('rpe-dl').value = dispW(APP.maxes.dl);
+  rpeActiveLift = APP.rpeActiveLift||'sq';
+  // Update RPE tab unit labels
+  document.querySelectorAll('.rpe-unit-label').forEach(el=>el.textContent=unitSuffix());
+}
+
+function setRPELift(lift, btn) {
+  rpeActiveLift = lift;
+  APP.rpeActiveLift = lift;
+  saveApp();
+  document.querySelectorAll('#rpeLiftTabs .btn').forEach(b=>{
+    b.className = b===btn ? 'btn btn-red btn-sm' : 'btn btn-ghost btn-sm';
+  });
+  renderRPETable();
+}
+
+function renderRPETable() {
+  const rawInput = parseFloat(document.getElementById('rpe-'+rpeActiveLift)?.value);
+  // Input is in current unit — convert to lbs for calculation
+  const max = isKg() ? rawInput * KG_TO_LBS : rawInput;
+  const container = document.getElementById('rpeTableContainer');
+  if(!container) return;
+  if(!rawInput||rawInput<=0) {
+    container.innerHTML='<div class="empty-state"><div class="empty-state-title">Enter a max above</div></div>';
+    return;
+  }
+  const colLabel = unitSuffix();
+  let html = `<table class="rpe-table"><thead><tr><th class="rpe-col">RPE</th>`;
+  REP_RANGE.forEach(r=>{ html+=`<th>${r}</th>`; });
+  html += `</tr></thead><tbody>`;
+  RPE_ORDER.forEach(rpe=>{
+    const data = RPE_TABLE[rpe];
+    const label = Number.isInteger(rpe)?rpe.toFixed(0):rpe.toFixed(1);
+    html += `<tr><td class="rpe-val">${label}</td>`;
+    REP_RANGE.forEach(rep=>{
+      const pct = data[rep];
+      const loadLbs = r5(pct*max);
+      const load = isKg() ? Math.round(loadLbs * LBS_TO_KG * 2)/2 : loadLbs;
+      let cls = 'i-low';
+      if(pct>=0.95) cls='i-max';
+      else if(pct>=0.88) cls='i-high';
+      else if(pct>=0.75) cls='i-med';
+      html += `<td class="${cls}">${load}</td>`;
+    });
+    html += `</tr>`;
+  });
+  html += `</tbody></table>`;
+  container.innerHTML = html;
+}
+
+// ═══════════════════════════════════════════════
+// ACCESSORIES
+// ═══════════════════════════════════════════════
+let showArchived = false;
+function toggleShowArchived() {
+  showArchived = !showArchived;
+  renderAccessories();
+}
+
+function renderAccessories() {
+  const el = document.getElementById('accessoryList');
+  if(!el) return;
+  const list = showArchived ? APP.accessories : APP.accessories.filter(a=>!a.archived);
+  if(!list.length) {
+    el.innerHTML='<div class="empty-state"><div class="empty-state-title">No accessories</div></div>';
+    return;
+  }
+  const catLabels = {squat:'Squat',bench:'Bench',deadlift:'Deadlift',general:'General',rehab:'Rehab/Prehab'};
+  el.innerHTML = list.map(a=>`
+    <div class="list-item" style="${a.archived?'opacity:.5':''}">
+      <div class="list-item-main">
+        <div class="list-item-title">${a.name} ${a.archived?'<span style="font-size:10px;color:var(--silver);">[archived]</span>':''}</div>
+        <div class="list-item-sub">${a.desc}</div>
+        <span class="cat-tag cat-${a.cat}" style="margin-top:5px;display:inline-block;">${catLabels[a.cat]||a.cat}</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-end;">
+        <button class="btn btn-ghost btn-xs" onclick="openEditAccessory('${a.id}')">Edit</button>
+        ${a.archived
+          ? `<button class="btn btn-ghost btn-xs" onclick="unarchiveAccessory('${a.id}')">Restore</button>`
+          : `<button class="btn btn-ghost btn-xs" onclick="archiveAccessory('${a.id}')">Archive</button>`}
+        <button class="btn btn-danger btn-xs" onclick="deleteAccessory('${a.id}')">Delete</button>
+      </div>
+    </div>`).join('');
+}
+
+function openAddAccessory() {
+  document.getElementById('accModalTitle').textContent='Add Accessory';
+  document.getElementById('accEditId').value='';
+  document.getElementById('acc-name').value='';
+  document.getElementById('acc-desc').value='';
+  document.getElementById('acc-cat').value='squat';
+  openModal('modal-addAccessory');
+}
+function openEditAccessory(id) {
+  const a = APP.accessories.find(x=>x.id===id);
+  if(!a) return;
+  document.getElementById('accModalTitle').textContent='Edit Accessory';
+  document.getElementById('accEditId').value=id;
+  document.getElementById('acc-name').value=a.name;
+  document.getElementById('acc-desc').value=a.desc;
+  document.getElementById('acc-cat').value=a.cat;
+  openModal('modal-addAccessory');
+}
+function saveAccessory() {
+  const id = document.getElementById('accEditId').value;
+  const name = document.getElementById('acc-name').value.trim();
+  const desc = document.getElementById('acc-desc').value.trim();
+  const cat  = document.getElementById('acc-cat').value;
+  if(!name) return;
+  if(id) {
+    const a = APP.accessories.find(x=>x.id===id);
+    if(a) { a.name=name; a.desc=desc; a.cat=cat; }
+  } else {
+    APP.accessories.push({id:uid(),name,desc,cat,archived:false});
+  }
+  saveApp();
+  renderAccessories();
+  closeModal('modal-addAccessory');
+}
+function archiveAccessory(id) {
+  const a = APP.accessories.find(x=>x.id===id);
+  if(a) { a.archived=true; saveApp(); renderAccessories(); }
+}
+function unarchiveAccessory(id) {
+  const a = APP.accessories.find(x=>x.id===id);
+  if(a) { a.archived=false; saveApp(); renderAccessories(); }
+}
+function deleteAccessory(id) {
+  confirmAction('Delete Accessory','Delete this accessory? Historical log data will remain.',()=>{
+    APP.accessories = APP.accessories.filter(x=>x.id!==id);
+    saveApp(); renderAccessories();
+  });
+}
+
+// ═══════════════════════════════════════════════
+// CUES
+// ═══════════════════════════════════════════════
+const cuePhases = {
+  squat:    ['Setup','Walkout','Brace','Descent','Bottom','Ascent','Rack'],
+  bench:    ['Setup','Grip','Arch / Scap','Unrack','Descent','Touch','Press','Lockout'],
+  deadlift: ['Setup','Wedge','Slack Pull','Floor Break','Mid-Shin / Knee','Lockout','Reset'],
+};
+const CUE_PANEL_MAP = {cSQ:'squat',cBP:'bench',cDL:'deadlift'};
+const cueFilterState = {cSQ:'all',cBP:'all',cDL:'all'};
+
+function renderCues() {
+  ['cSQ','cBP','cDL'].forEach(id=>renderCuePanel(id));
+}
+
+function renderCuePanel(panelId) {
+  const lift = CUE_PANEL_MAP[panelId];
+  if(!lift) return;
+  const panel = document.getElementById(panelId);
+  if(!panel) return;
+  const filter = cueFilterState[panelId]||'all';
+  const allCues = CUE_DATA[lift];
+  const favIds = APP.cueFavs||[];
+
+  let filtered = allCues;
+  if(filter==='favorites') filtered = allCues.filter(c=>favIds.includes(c.id));
+  else if(filter==='setup') filtered = allCues.filter(c=>c.phase.toLowerCase().includes('setup')||c.tags.includes('setup'));
+  else if(filter==='fix') filtered = allCues.filter(c=>c.tags.includes('technical fix'));
+  else if(filter==='mental') filtered = allCues.filter(c=>c.tags.includes('mental cue'));
+  else if(filter==='top') filtered = allCues.filter(c=>c.rating>=5);
+  else if(filter==='competition') filtered = allCues.filter(c=>c.tags.includes('competition'));
+
+  const phases = cuePhases[lift];
+
+  let html = `<div class="filter-bar">
+    ${[['all','All'],['top','Top Rated'],['favorites','Favorites'],['setup','Setup'],['fix','Tech Fix'],['competition','Competition']].map(([val,lbl])=>
+      `<button class="filter-btn${filter===val?' active':''}" onclick="setCueFilter('${panelId}','${val}')">${lbl}</button>`
+    ).join('')}
+  </div>`;
+
+  // Favorites first if any
+  const favCues = filtered.filter(c=>favIds.includes(c.id));
+  const nonFavCues = filtered.filter(c=>!favIds.includes(c.id));
+
+  if(favCues.length && filter!=='favorites') {
+    html += `<div style="padding:12px 16px 0;">
+      <div class="phase-label">Favorites</div>
+      ${favCues.map(c=>buildCueHTML(c,true)).join('')}
+    </div>`;
+  }
+
+  if(filter==='favorites' && !favCues.length) {
+    html += `<div class="empty-state"><div class="empty-state-title">No favorites yet</div><div class="empty-state-sub">Tap ★ on any cue to favorite it</div></div>`;
+  } else if(filter!=='favorites') {
+    phases.forEach(phase=>{
+      const phaseCues = nonFavCues.filter(c=>c.phase===phase);
+      if(!phaseCues.length) return;
+      html += `<div style="padding:12px 16px 0;">
+        <div class="phase-label">${phase}</div>
+        ${phaseCues.map(c=>buildCueHTML(c,false)).join('')}
+      </div>`;
+    });
+    if(!filtered.length) {
+      html += `<div class="empty-state"><div class="empty-state-title">No cues match this filter</div></div>`;
+    }
+  } else {
+    html += `<div style="padding:12px 16px 0;">${favCues.map(c=>buildCueHTML(c,true)).join('')}</div>`;
+  }
+
+  panel.innerHTML = html;
+}
+
+function buildCueHTML(cue, isFav) {
+  const isFavorited = APP.cueFavs.includes(cue.id);
+  const stars = '★'.repeat(cue.rating)+'☆'.repeat(5-cue.rating);
+  return `<div class="cue-item${isFavorited?' favorited':''}">
+    <div class="cue-head">
+      <div class="cue-main">${cue.text}</div>
+      <button class="star-btn${isFavorited?' active':''}" onclick="toggleCueFav('${cue.id}')">★</button>
+    </div>
+    <div class="cue-body">
+      <div class="cue-desc">${cue.desc}</div>
+      <div class="cue-desc" style="color:var(--off);"><strong>Fixes:</strong> ${cue.problem}</div>
+      <div class="cue-desc"><strong>When:</strong> ${cue.when}</div>
+      <div class="cue-meta">
+        <span class="cue-tag tag-red">${cue.phase}</span>
+        ${cue.tags.map(t=>`<span class="cue-tag">${t}</span>`).join('')}
+        <span style="font-size:11px;color:var(--yellow);margin-left:auto;">${stars}</span>
+      </div>
+    </div>
+  </div>`;
+}
+
+function toggleCueFav(id) {
+  if(!APP.cueFavs) APP.cueFavs=[];
+  const idx = APP.cueFavs.indexOf(id);
+  if(idx>=0) APP.cueFavs.splice(idx,1);
+  else APP.cueFavs.push(id);
+  saveApp();
+  renderCues();
+}
+
+function setCueFilter(panelId, filter) {
+  cueFilterState[panelId] = filter;
+  renderCuePanel(panelId);
+}
+
+// ═══════════════════════════════════════════════
+// GRAPHS
+// ═══════════════════════════════════════════════
+const graphState = {gSQ:{exercise:'Squat',metric:'e1rm'},gBP:{exercise:'Bench',metric:'e1rm'},gDL:{exercise:'Deadlift',metric:'e1rm'}};
+
+function renderGraphs() {
+  ['gSQ','gBP','gDL'].forEach(id=>{
+    const panel = document.getElementById(id);
+    if(panel && panel.classList.contains('active')) renderGraphPanel(id);
+  });
+  // ensure first panel rendered
+  renderGraphPanel('gSQ');
+}
+
+function renderGraphPanel(panelId) {
+  const panel = document.getElementById(panelId);
+  if(!panel) return;
+  const liftMap = {gSQ:'Squat',gBP:'Bench',gDL:'Deadlift'};
+  const catMap  = {gSQ:'squat',gBP:'bench',gDL:'deadlift'};
+  const mainLift = liftMap[panelId];
+  const cat = catMap[panelId];
+  const state = graphState[panelId];
+
+  // Build exercise options
+  const accs = APP.accessories.filter(a=>a.cat===cat&&!a.archived).map(a=>a.name);
+  const options = [mainLift,...accs];
+
+  // Get logged data for selected exercise
+  const selected = state.exercise||mainLift;
+  const metric   = state.metric||'e1rm';
+
+  // Gather data points
+  const points = [];
+  APP.logs.forEach(log=>{
+    if(!log.exercises) return;
+    log.exercises.forEach(ex=>{
+      if(ex.name!==selected) return;
+      ex.sets.forEach(s=>{
+        if(!s.w||!s.r) return;
+        const est = e1RM(s.w,s.r);
+        points.push({date:log.date,weight:s.w,reps:s.r,rpe:s.rpe,e1rm:est,volume:s.w*s.r});
+      });
+    });
+  });
+
+  // Aggregate by date
+  const byDate = {};
+  points.forEach(p=>{
+    if(!byDate[p.date]) byDate[p.date]={date:p.date,topW:0,topE1RM:0,totalVol:0,rpeSum:0,rpeCount:0};
+    const d = byDate[p.date];
+    if(p.weight>d.topW) d.topW=p.weight;
+    if(p.e1rm>d.topE1RM) d.topE1RM=p.e1rm;
+    d.totalVol+=p.volume;
+    if(p.rpe){d.rpeSum+=p.rpe;d.rpeCount++;}
+  });
+  const dates = Object.keys(byDate).sort();
+  const data = dates.map(d=>byDate[d]);
+
+  // PRs
+  const prE1RM = data.length ? Math.max(...data.map(d=>d.topE1RM)) : 0;
+  const prVol  = data.length ? Math.max(...data.map(d=>d.totalVol)) : 0;
+
+  let html = `<div style="padding:12px 16px 0;">
+    <div style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap;">
+      <select onchange="graphState['${panelId}'].exercise=this.value;renderGraphPanel('${panelId}')" style="flex:1;">
+        ${options.map(o=>`<option value="${o}" ${o===selected?'selected':''}>${o}</option>`).join('')}
+      </select>
+      <select onchange="graphState['${panelId}'].metric=this.value;renderGraphPanel('${panelId}')" style="flex:1;">
+        <option value="e1rm" ${metric==='e1rm'?'selected':''}>Est. 1RM (Epley)</option>
+        <option value="topW" ${metric==='topW'?'selected':''}>Top Weight</option>
+        <option value="volume" ${metric==='volume'?'selected':''}>Total Volume</option>
+        <option value="rpe" ${metric==='rpe'?'selected':''}>Avg RPE</option>
+      </select>
+    </div>`;
+
+  // PR summary
+  if(data.length) {
+    const topW = Math.max(...data.map(d=>d.topW));
+    html += `<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:12px;">
+      <div class="stat-cell" style="background:var(--card);border:1px solid var(--line);">
+        <div class="stat-lbl">Top Weight</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;">${dispW(topW)}<span class="stat-unit">${unitSuffix()}</span></div>
+      </div>
+      <div class="stat-cell" style="background:var(--card);border:1px solid var(--line);">
+        <div class="stat-lbl">Est. 1RM PR</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;">${dispW(Math.round(prE1RM))}<span class="stat-unit">${unitSuffix()}</span></div>
+      </div>
+      <div class="stat-cell" style="background:var(--card);border:1px solid var(--line);">
+        <div class="stat-lbl">Sessions</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;">${dates.length}</div>
+      </div>
+    </div>`;
+  }
+
+  if(data.length<2) {
+    html += `<div class="empty-state"><div class="empty-state-title">Not enough data to graph</div><div class="empty-state-sub">Log at least 2 sessions of ${selected}</div></div>`;
+  } else {
+    html += `<canvas id="chart_${panelId}" height="200"></canvas>`;
+  }
+
+  html += `</div>`;
+  panel.innerHTML = html;
+
+  // Draw chart
+  if(data.length>=2) {
+    setTimeout(()=>{
+      const canvas = document.getElementById('chart_'+panelId);
+      if(!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const W = canvas.offsetWidth; canvas.width=W; canvas.height=200;
+      const vals = data.map(d=>{
+        if(metric==='e1rm') return Math.round(dispW(d.topE1RM)*2)/2;
+        if(metric==='topW') return dispW(d.topW);
+        if(metric==='volume') return isKg() ? Math.round(d.totalVol*LBS_TO_KG) : d.totalVol;
+        if(metric==='rpe') return d.rpeCount?Math.round(d.rpeSum/d.rpeCount*10)/10:0;
+        return 0;
+      });
+      const minV = Math.min(...vals)*0.95;
+      const maxV = Math.max(...vals)*1.05;
+      const pad = {l:50,r:16,t:20,b:40};
+      const cw = W-pad.l-pad.r; const ch = 200-pad.t-pad.b;
+      const toX = i=>pad.l+i/(data.length-1)*cw;
+      const toY = v=>pad.t+ch-(v-minV)/(maxV-minV)*ch;
+
+      ctx.clearRect(0,0,W,200);
+      // Grid lines
+      ctx.strokeStyle='#2e2e2e'; ctx.lineWidth=1;
+      for(let i=0;i<=4;i++){
+        const y=pad.t+ch/4*i;
+        ctx.beginPath();ctx.moveTo(pad.l,y);ctx.lineTo(W-pad.r,y);ctx.stroke();
+        const gridVal=maxV-(maxV-minV)/4*i;
+        ctx.fillStyle='#888';ctx.font='10px Barlow Condensed,sans-serif';
+        ctx.textAlign='right';ctx.fillText(Math.round(gridVal),pad.l-4,y+4);
+      }
+      // Area fill
+      ctx.beginPath();
+      ctx.moveTo(toX(0),toY(vals[0]));
+      vals.forEach((v,i)=>{if(i>0)ctx.lineTo(toX(i),toY(v));});
+      ctx.lineTo(toX(vals.length-1),pad.t+ch);
+      ctx.lineTo(toX(0),pad.t+ch);
+      ctx.closePath();
+      ctx.fillStyle='rgba(192,57,43,0.1)';ctx.fill();
+      // Line
+      ctx.beginPath();ctx.strokeStyle='#c0392b';ctx.lineWidth=2;
+      vals.forEach((v,i)=>{i===0?ctx.moveTo(toX(i),toY(v)):ctx.lineTo(toX(i),toY(v));});
+      ctx.stroke();
+      // PR dot
+      const prIdx = vals.indexOf(Math.max(...vals));
+      ctx.beginPath();ctx.arc(toX(prIdx),toY(vals[prIdx]),5,0,Math.PI*2);
+      ctx.fillStyle='#e74c3c';ctx.fill();
+      ctx.fillStyle='#f0f0f0';ctx.font='bold 10px Barlow Condensed,sans-serif';ctx.textAlign='center';
+      ctx.fillText('PR',toX(prIdx),toY(vals[prIdx])-10);
+      // Dots
+      ctx.fillStyle='#c0392b';
+      vals.forEach((v,i)=>{ctx.beginPath();ctx.arc(toX(i),toY(v),3,0,Math.PI*2);ctx.fill();});
+      // X labels
+      ctx.fillStyle='#888';ctx.font='9px Barlow Condensed,sans-serif';ctx.textAlign='center';
+      const step = Math.ceil(data.length/6);
+      data.forEach((d,i)=>{
+        if(i%step===0||i===data.length-1){
+          const [,m,day]=d.date.split('-');
+          ctx.fillText(`${m}/${day}`,toX(i),200-10);
+        }
+      });
+    },50);
+  }
+}
+
+// ═══════════════════════════════════════════════
+// NUTRITION
+// ═══════════════════════════════════════════════
+function saveNutritionEntry() {
+  const d = document.getElementById('n-date').value||today();
+  const bw   = parseFloat(document.getElementById('n-bw').value)||null;
+  const cal  = parseInt(document.getElementById('n-cal').value)||null;
+  const pro  = parseInt(document.getElementById('n-pro').value)||null;
+  const carbs= parseInt(document.getElementById('n-carbs').value)||null;
+  const fat  = parseInt(document.getElementById('n-fat').value)||null;
+  const notes= document.getElementById('n-notes').value;
+  if(!bw&&!cal&&!pro&&!carbs&&!fat) { alert('Enter at least one value.'); return; }
+  const existing = APP.nutrition.find(e=>e.date===d);
+  if(existing) {
+    if(bw)    existing.bw=bw;
+    if(cal)   existing.cal=cal;
+    if(pro)   existing.pro=pro;
+    if(carbs) existing.carbs=carbs;
+    if(fat)   existing.fat=fat;
+    if(notes) existing.notes=notes;
+  } else {
+    APP.nutrition.push({id:uid(),date:d,bw,cal,pro,carbs,fat,notes});
+  }
+  saveApp();
+  renderDashboard();
+  // Clear
+  ['n-bw','n-cal','n-pro','n-carbs','n-fat','n-notes'].forEach(id=>document.getElementById(id).value='');
+  alert('Entry saved!');
+}
+
+function renderNutritionHistory() {
+  const el = document.getElementById('nutriHistList');
+  if(!el) return;
+  const entries = [...APP.nutrition].sort((a,b)=>b.date.localeCompare(a.date));
+  if(!entries.length) {
+    el.innerHTML='<div class="empty-state"><div class="empty-state-title">No entries yet</div></div>';
+    return;
+  }
+  el.innerHTML = entries.map(e=>`
+    <div class="log-entry">
+      <div class="log-entry-head" style="cursor:default;">
+        <div style="flex:1;">
+          <div class="log-date" style="font-size:16px;">${fmtDate(e.date)}</div>
+          <div class="macro-row" style="margin-top:6px;">
+            <div class="macro-cell"><div class="macro-val">${e.bw||'—'}</div><div class="macro-lbl">kg</div></div>
+            <div class="macro-cell"><div class="macro-val">${e.cal||'—'}</div><div class="macro-lbl">kcal</div></div>
+            <div class="macro-cell"><div class="macro-val">${e.pro||'—'}</div><div class="macro-lbl">prot</div></div>
+            <div class="macro-cell"><div class="macro-val">${e.carbs||'—'}</div><div class="macro-lbl">carb</div></div>
+          </div>
+          ${e.notes?`<div style="font-size:12px;color:var(--silver);margin-top:4px;">${e.notes}</div>`:''}
+        </div>
+        <button class="btn btn-danger btn-xs" style="flex-shrink:0;" onclick="deleteNutrEntry('${e.id}')">✕</button>
+      </div>
+    </div>`).join('');
+}
+
+function deleteNutrEntry(id) {
+  confirmAction('Delete Entry','Delete this nutrition entry?',()=>{
+    APP.nutrition=APP.nutrition.filter(e=>e.id!==id);
+    saveApp(); renderNutritionHistory(); renderDashboard();
+  });
+}
+
+function renderNutritionCharts() {
+  const el = document.getElementById('nutriChartArea');
+  if(!el) return;
+  const entries = [...APP.nutrition].filter(e=>e.bw||e.cal).sort((a,b)=>a.date.localeCompare(b.date));
+  if(entries.length<2) {
+    el.innerHTML='<div class="empty-state"><div class="empty-state-title">Log at least 2 entries to see charts</div></div>';
+    return;
+  }
+  const charts = [
+    {key:'bw',label:'Bodyweight (kg)',color:'#c0392b'},
+    {key:'cal',label:'Calories (kcal)',color:'#e67e22'},
+    {key:'pro',label:'Protein (g)',color:'#27ae60'},
+    {key:'carbs',label:'Carbs (g)',color:'#2980b9'},
+    {key:'fat',label:'Fat (g)',color:'#8e44ad'},
+  ];
+  el.innerHTML = charts.map(c=>`
+    <div style="margin-bottom:16px;">
+      <div class="card-label" style="margin-bottom:6px;padding-left:0;">${c.label}</div>
+      <canvas id="nchart_${c.key}" height="140"></canvas>
+    </div>`).join('');
+
+  setTimeout(()=>{
+    charts.forEach(c=>{
+      const canvas = document.getElementById('nchart_'+c.key);
+      if(!canvas) return;
+      const relevant = entries.filter(e=>e[c.key]!=null);
+      if(relevant.length<2) { canvas.style.display='none'; return; }
+      const ctx = canvas.getContext('2d');
+      const W = canvas.offsetWidth; canvas.width=W; canvas.height=140;
+      const vals = relevant.map(e=>e[c.key]);
+      const minV = Math.min(...vals)*0.97;
+      const maxV = Math.max(...vals)*1.03;
+      const pad={l:46,r:10,t:16,b:30};
+      const cw=W-pad.l-pad.r; const ch=140-pad.t-pad.b;
+      const toX=i=>pad.l+i/(relevant.length-1)*cw;
+      const toY=v=>pad.t+ch-(v-minV)/(maxV-minV)*ch;
+      ctx.clearRect(0,0,W,140);
+      ctx.strokeStyle='#2e2e2e';ctx.lineWidth=1;
+      for(let i=0;i<=3;i++){
+        const y=pad.t+ch/3*i;
+        ctx.beginPath();ctx.moveTo(pad.l,y);ctx.lineTo(W-pad.r,y);ctx.stroke();
+        const gv=maxV-(maxV-minV)/3*i;
+        ctx.fillStyle='#888';ctx.font='9px Barlow Condensed,sans-serif';ctx.textAlign='right';
+        ctx.fillText(Math.round(gv*10)/10,pad.l-3,y+4);
+      }
+      ctx.beginPath();ctx.moveTo(toX(0),toY(vals[0]));
+      vals.forEach((v,i)=>{if(i>0)ctx.lineTo(toX(i),toY(v));});
+      ctx.lineTo(toX(vals.length-1),pad.t+ch);ctx.lineTo(toX(0),pad.t+ch);ctx.closePath();
+      ctx.fillStyle=c.color+'22';ctx.fill();
+      ctx.beginPath();ctx.strokeStyle=c.color;ctx.lineWidth=2;
+      vals.forEach((v,i)=>{i===0?ctx.moveTo(toX(i),toY(v)):ctx.lineTo(toX(i),toY(v));});
+      ctx.stroke();
+      ctx.fillStyle=c.color;
+      vals.forEach((v,i)=>{ctx.beginPath();ctx.arc(toX(i),toY(v),2.5,0,Math.PI*2);ctx.fill();});
+      ctx.fillStyle='#888';ctx.font='9px Barlow Condensed,sans-serif';ctx.textAlign='center';
+      const step=Math.ceil(relevant.length/5);
+      relevant.forEach((e,i)=>{
+        if(i%step===0||i===relevant.length-1){
+          const [,m,day]=e.date.split('-');
+          ctx.fillText(`${m}/${day}`,toX(i),140-6);
+        }
+      });
+    });
+  },50);
+}
+
+// ═══════════════════════════════════════════════
+// SETTINGS
+// ═══════════════════════════════════════════════
+function exportData() {
+  const json = JSON.stringify(APP, null, 2);
+  const blob = new Blob([json],{type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href=url; a.download='iron_dashboard_backup_'+today()+'.json';
+  a.click(); URL.revokeObjectURL(url);
+}
+
+function importData(event) {
+  const file = event.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = e=>{
+    try {
+      const data = JSON.parse(e.target.result);
+      confirmAction('Import Data','This will replace all current app data with the imported file. Continue?',()=>{
+        APP = data;
+        saveApp();
+        location.reload();
+      });
+    } catch(err) { alert('Invalid JSON file.'); }
+  };
+  reader.readAsText(file);
+}
+
+function confirmReset() {
+  confirmAction('Reset All Data','This will permanently delete ALL app data including logs, targets, and profile. This cannot be undone.',()=>{
+    localStorage.removeItem('ironDashboard_v2');
+    location.reload();
+  });
+}
+
+function syncSettingsUnit() {
+  const u = APP.unit || 'lbs';
+  const lbsBtn = document.getElementById('settings-unit-lbs');
+  const kgBtn  = document.getElementById('settings-unit-kg');
+  const cur    = document.getElementById('settings-unit-current');
+  if(lbsBtn) { lbsBtn.className = u==='lbs' ? 'btn btn-red' : 'btn btn-ghost'; lbsBtn.style.cssText='flex:1;justify-content:center;border-radius:0;border:none;'; }
+  if(kgBtn)  { kgBtn.className  = u==='kg'  ? 'btn btn-red' : 'btn btn-ghost'; kgBtn.style.cssText='flex:1;justify-content:center;border-radius:0;border:none;border-left:1px solid var(--line2);'; }
+  if(cur) cur.textContent = u === 'lbs' ? 'Pounds (lbs)' : 'Kilograms (kg)';
+}
+
+// ═══════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════
+function init() {
+  loadApp();
+  // Set date defaults
+  document.getElementById('n-date').value = today();
+  document.getElementById('bw-date').value = today();
+  // Sync RPE inputs with maxes (respects current unit)
+  syncRPEInputs();
+  // Render dashboard
+  renderDashboard();
+  // Pre-render log and targets
+  renderLogTab();
+  renderTargetsTab();
+  renderSplit();
+  syncSettingsUnit();
+}
+
+document.addEventListener('DOMContentLoaded', init);
+
+// Close modals on overlay click
+document.querySelectorAll('.modal-overlay').forEach(overlay=>{
+  overlay.addEventListener('click', e=>{ if(e.target===overlay) overlay.classList.remove('open'); });
+});
+</script>
+</body>
+</html>
